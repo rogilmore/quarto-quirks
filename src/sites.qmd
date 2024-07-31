@@ -1,1 +1,8 @@
 # Sites
+
+This chapter summarizes some things I have learned in creating web sites like
+those I use for my courses.
+
+## GitHub repo
+
+

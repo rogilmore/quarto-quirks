@@ -4,9 +4,99 @@
     "href": "index.html",
     "title": "Quarto Quirks",
     "section": "",
-    "text": "About\nThis Quarto book documents some of the ways I like to use Quarto for e-books, talk slides, and websites.\nSearch engines are extremely useful tools for answering similar questions. Here, I try to capture specific implementations that I have found useful in my own work.\n\n\n\n\n\n\nNote\n\n\n\nI now use Quarto regularly. But there are many, many things I do not yet know about how to use it most effectively.",
+    "text": "About\nThis Quarto book documents some of the ways I like to use Quarto for e-books, talk slides, and websites.\nSearch engines are extremely useful tools for answering similar questions. Here, I try to capture specific implementations that I have found useful in my own work.\nIn fairness to Quarto, this site has more to do with my quirks than Quarto’s. But I liked the alliteration.\n\n\n\n\n\n\nNote\n\n\n\nI now use Quarto regularly. But there are many, many things I do not yet know about how to use it most effectively.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html",
+    "href": "meta.html",
+    "title": "Meta",
+    "section": "",
+    "text": "Github\nAlmost every project starts with a new GitHub repository.\nI try to create a repo name that would make a reasonably informative web site name. That way I can use the GitHub Pages feature to host the site.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html#rstudio-projects",
+    "href": "meta.html#rstudio-projects",
+    "title": "Meta",
+    "section": "RStudio projects",
+    "text": "RStudio projects\nOnce I have created a repo on GitHub and copied it to my clipboard, I open RStudio and create a new project.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html#dependency-management",
+    "href": "meta.html#dependency-management",
+    "title": "Meta",
+    "section": "Dependency management",
+    "text": "Dependency management\nI am now using {renv} to manage package dependencies. So, once I have created the project, I run renv::init() to initialize the project for renv().\n\nModify .gitignore\n\n\n\n\n\n\nTip\n\n\n\nThe .gitignore file keeps track of the files that you do not want to submit to version control and thus do not want to push to GitHub.\n\n\nThis is a good time to make our first git commit. I right-click on the *.Rproj project and .Rprofile files since those are specific to me. Then I add all of the other files to the commit, add a commit message like ‘initial commit’, and make the commit.\nTo test the GitHub connection, one can push the commit.\n\n\n\n\n\n\nNote\n\n\n\nI know that there are ways to automate interactions with GitHub. Learning those are on my to-do list.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html#directory-structure",
+    "href": "meta.html#directory-structure",
+    "title": "Meta",
+    "section": "Directory structure",
+    "text": "Directory structure\nI prefer that my project’s root directory have two subdirectories, src/, and docs/. The src/ directory is where the source code lives. The docs/ directory is where the rendered output goes.\nGitHub Pages permits the user to select the docs/ directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.\nUnder src/, I have now started creating an include/ directory that has separate subfolders for images (img/), CSS styles (css/), and references (bib/). This ensures that resources for other parts of the project are in a consistent location.\nThe dir_tree() function from the {fs} package makes it easy to show the structure.\n\n# Have to use `../src` because this document lives in the `src/` directory.\nfs::dir_tree(path = '../src')\n\n../src\n├── _quarto.yml\n├── books.qmd\n├── include\n│   ├── bib\n│   ├── css\n│   └── img\n├── index.qmd\n├── meta.qmd\n├── meta.rmarkdown\n├── sites.qmd\n└── slides.qmd\n\n\n\n\n\n\n\n\nNote\n\n\n\nWith some rare exceptions, I prefer to call functions in packages using their full names, e.g., fs::dir_tree('src'). This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps {renv} keep track of my project’s package dependencies.\nThe exception is for {ggplot2} commands. I find it much easier to load the library via library(ggplot2), and then use the associated commands.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html#create-_quarto.yml",
+    "href": "meta.html#create-_quarto.yml",
+    "title": "Meta",
+    "section": "Create _quarto.yml",
+    "text": "Create _quarto.yml\nThe _quarto.yml files have specific parameters for each type of output.\nNote that when using a src/ and docs/ directory as described above, the output-dir parameter must be specified to give the path to the docs/ directory from the src/_quarto.yml file.\nproject:\n  type: book\n  output-dir: \"../docs\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "meta.html#rendering",
+    "href": "meta.html#rendering",
+    "title": "Meta",
+    "section": "Rendering",
+    "text": "Rendering\nTo render an entire site or book, I prefer to run quarto render src in a terminal.\nTo render talk slides with a single index.qmd as the slide file, I run quarto render index.qmd.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
+    ]
+  },
+  {
+    "objectID": "books.html",
+    "href": "books.html",
+    "title": "Books",
+    "section": "",
+    "text": "This chapter summarizes some things I have learned in creating web books.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Books</span>"
+    ]
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "GitHub repo\nFor many years, I have made separate repositories for each talk. Course lectures are a special case. I’ll talk about them later.\nSo, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits under a repo titled ‘cpo-talk-radio-astronomy’ that resides under my ‘rogilmore’ GitHub account. I’ve set-up that account to host my blog, and so this means that this talk lives at rick-gilmore.com/cpo-talk-radio-astronomy. This talk should probably have had a date.\nThe single repo per talk scheme works well in this case, and it involves a simpler file directory organization on my local machine. I do not create separate src/ and docs/ directories, nor is a _quarto.yml file needed. I simply create index.qmd, and an include/ directory, then render the output to the project root.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html",
+    "href": "sites.html",
+    "title": "Sites",
+    "section": "",
+    "text": "GitHub repo",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
     ]
   }
 ]

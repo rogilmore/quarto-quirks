@@ -1,2 +1,4 @@
 # Books
 
+This chapter summarizes some things I have learned in creating web books.
+

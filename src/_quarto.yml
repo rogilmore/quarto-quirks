@@ -7,6 +7,7 @@ book:
   author: "Rick Gilmore"
   chapters:
     - index.qmd
+    - meta.qmd
     - books.qmd
     - slides.qmd
     - sites.qmd
