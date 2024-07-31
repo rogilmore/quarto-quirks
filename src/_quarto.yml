@@ -1,0 +1,17 @@
+project:
+  type: book
+  output-dir: "../docs"
+
+book:
+  title: "Quarto Quirks"
+  author: "Rick Gilmore"
+  chapters:
+    - index.qmd
+    - books.qmd
+    - slides.qmd
+    - sites.qmd
+format:
+  html:
+    theme: cosmo
+    number-sections: false
+    fig-align: center

@@ -1,0 +1,35 @@
+# Meta
+
+This page documents some practices that make my workflow more efficient.
+
+## Github
+
+Almost every project starts with a new GitHub repository.
+
+I try to create a repo name that would make a reasonably informative web site name.
+That way I can use the GitHub Pages feature to host the site.
+
+## RStudio projects
+
+Once I have created a repo on GitHub and copied it to my clipboard, I open 
+RStudio and create a new project.
+
+## Dependency management
+
+I am now using `{renv}` to manage package dependencies.
+So, once I have created the project, I run `renv::init()` to initialize the
+project for `renv()`.
+
+### Modify `.gitignore`
+
+This is a good time to make our first git commit.
+I right-click on the `*.Rproj` project file since that is specific to me.
+
+## Directory structure
+
+I prefer that my project's root directory have two subdirectories, `src/`, and `docs/`.
+The `src/` directory is where the source code lives.
+The `docs/` directory is where the rendered output goes.
+
+GitHub Pages permits the user to select the `docs/` directory for building a site.
+So, this structure makes that process very clean.

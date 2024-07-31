@@ -1,0 +1,14 @@
+# About
+
+This Quarto book documents some of the ways I like to use Quarto for [e-books](books.qmd), talk [slides](slides.qmd), and [websites](sites.qmd).
+
+Search engines are extremely useful tools for answering similar questions.
+Here, I try to capture specific implementations that I have found useful in my own work.
+
+::: {.callout-note}
+
+I now use Quarto regularly.
+But there are many, many things I do not yet know about how to use it most
+effectively.
+
+:::

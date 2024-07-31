@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto Quirks",
+    "section": "",
+    "text": "About\nThis Quarto book documents some of the ways I like to use Quarto for e-books, talk slides, and websites.\nSearch engines are extremely useful tools for answering similar questions. Here, I try to capture specific implementations that I have found useful in my own work.\n\n\n\n\n\n\nNote\n\n\n\nI now use Quarto regularly. But there are many, many things I do not yet know about how to use it most effectively.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
+    ]
+  }
+]
