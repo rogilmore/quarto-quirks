@@ -20,6 +20,10 @@ I am now using `{renv}` to manage package dependencies.
 So, once I have created the project, I run `renv::init()` to initialize the
 project for `renv()`.
 
+To add a package, I run `install.packages(<pkg_name>)`.
+Then, I run `renv::snapshot()` to add that package to the list of dependencies.
+Running `renv::status()` is a good idea, also.
+
 ### Modify .gitignore
 
 ::: {.callout-tip}

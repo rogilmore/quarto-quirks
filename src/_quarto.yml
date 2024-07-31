@@ -11,8 +11,10 @@ book:
     - books.qmd
     - slides.qmd
     - sites.qmd
+    
 format:
   html:
     theme: cosmo
     number-sections: false
     fig-align: center
+    date-modified: last-modified
