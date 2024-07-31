@@ -97,6 +97,9 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Quarto Quirks</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rogilmore/quarto-quirks/tree/main/src/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -137,7 +140,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quarto.yml" id="toc-quarto.yml" class="nav-link active" data-scroll-target="#quarto.yml">_quarto.yml</a>
+  <ul class="collapse">
+  <li><a href="#adding-buttons-and-links-to-the-repo" id="toc-adding-buttons-and-links-to-the-repo" class="nav-link" data-scroll-target="#adding-buttons-and-links-to-the-repo">Adding buttons and links to the repo</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/books.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -168,8 +180,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This chapter summarizes some things I have learned in creating web books.</p>
+<section id="quarto.yml" class="level2">
+<h2 class="anchored" data-anchor-id="quarto.yml">_quarto.yml</h2>
+<section id="adding-buttons-and-links-to-the-repo" class="level3">
+<h3 class="anchored" data-anchor-id="adding-buttons-and-links-to-the-repo">Adding buttons and links to the repo</h3>
+<p>I find it useful to add automatically generated links to the site source code. So, for this project, the following YAML header adds those components site-wide.</p>
+<pre><code>book:
+  title: "Quarto Quirks"
+  author: "Rick Gilmore"
+  chapters:
+    - index.qmd
+    - meta.qmd
+    - books.qmd
+    - slides.qmd
+    - sites.qmd
+  repo-url: https://github.com/rogilmore/quarto-quirks
+  repo-actions: [edit, issue]
+  repo-subdir: src</code></pre>
+<p>The <code>repo-url:</code> is self-explanatory. If you’re using a separate <code>src/</code> directory, then the <code>repo-subdir:</code> parameter specifies that. If the source code is in the project root directory, you need not specify a value for this parameter. It defaults to the project root.</p>
+<p>To be clear, no one has yet filed an issue or made a pull request. But they could, and I like the transparency this permits.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -576,4 +609,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/books.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

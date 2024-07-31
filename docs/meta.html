@@ -131,6 +131,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Quarto Quirks</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rogilmore/quarto-quirks/tree/main/src/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -185,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#create-_quarto.yml" id="toc-create-_quarto.yml" class="nav-link" data-scroll-target="#create-_quarto.yml">Create _quarto.yml</a></li>
   <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/meta.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -228,6 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dependency-management" class="level2">
 <h2 class="anchored" data-anchor-id="dependency-management">Dependency management</h2>
 <p>I am now using <code>{renv}</code> to manage package dependencies. So, once I have created the project, I run <code>renv::init()</code> to initialize the project for <code>renv()</code>.</p>
+<p>To add a package, I run <code>install.packages(&lt;pkg_name&gt;)</code>. Then, I run <code>renv::snapshot()</code> to add that package to the list of dependencies. Running <code>renv::status()</code> is a good idea, also.</p>
 <section id="modify-.gitignore" class="level3">
 <h3 class="anchored" data-anchor-id="modify-.gitignore">Modify .gitignore</h3>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -743,4 +747,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/meta.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

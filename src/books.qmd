@@ -2,3 +2,34 @@
 
 This chapter summarizes some things I have learned in creating web books.
 
+## _quarto.yml
+
+### Adding buttons and links to the repo
+
+I find it useful to add automatically generated links to the site source code.
+So, for this project, the following YAML header adds those components site-wide.
+
+```
+book:
+  title: "Quarto Quirks"
+  author: "Rick Gilmore"
+  chapters:
+    - index.qmd
+    - meta.qmd
+    - books.qmd
+    - slides.qmd
+    - sites.qmd
+  repo-url: https://github.com/rogilmore/quarto-quirks
+  repo-actions: [edit, issue]
+  repo-subdir: src
+```
+
+The `repo-url:` is self-explanatory.
+If you're using a separate `src/` directory, then the `repo-subdir:` parameter
+specifies that.
+If the source code is in the project root directory, you need not specify
+a value for this parameter.
+It defaults to the project root.
+
+To be clear, no one has yet filed an issue or made a pull request.
+But they could, and I like the transparency this permits.

@@ -34,7 +34,7 @@
     "href": "meta.html#dependency-management",
     "title": "Meta",
     "section": "Dependency management",
-    "text": "Dependency management\nI am now using {renv} to manage package dependencies. So, once I have created the project, I run renv::init() to initialize the project for renv().\n\nModify .gitignore\n\n\n\n\n\n\nTip\n\n\n\nThe .gitignore file keeps track of the files that you do not want to submit to version control and thus do not want to push to GitHub.\n\n\nThis is a good time to make our first git commit. I right-click on the *.Rproj project and .Rprofile files since those are specific to me. Then I add all of the other files to the commit, add a commit message like ‘initial commit’, and make the commit.\nTo test the GitHub connection, one can push the commit.\n\n\n\n\n\n\nNote\n\n\n\nI know that there are ways to automate interactions with GitHub. Learning those are on my to-do list.",
+    "text": "Dependency management\nI am now using {renv} to manage package dependencies. So, once I have created the project, I run renv::init() to initialize the project for renv().\nTo add a package, I run install.packages(&lt;pkg_name&gt;). Then, I run renv::snapshot() to add that package to the list of dependencies. Running renv::status() is a good idea, also.\n\nModify .gitignore\n\n\n\n\n\n\nTip\n\n\n\nThe .gitignore file keeps track of the files that you do not want to submit to version control and thus do not want to push to GitHub.\n\n\nThis is a good time to make our first git commit. I right-click on the *.Rproj project and .Rprofile files since those are specific to me. Then I add all of the other files to the commit, add a commit message like ‘initial commit’, and make the commit.\nTo test the GitHub connection, one can push the commit.\n\n\n\n\n\n\nNote\n\n\n\nI know that there are ways to automate interactions with GitHub. Learning those are on my to-do list.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
     ]
@@ -74,7 +74,17 @@
     "href": "books.html",
     "title": "Books",
     "section": "",
-    "text": "This chapter summarizes some things I have learned in creating web books.",
+    "text": "_quarto.yml",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Books</span>"
+    ]
+  },
+  {
+    "objectID": "books.html#quarto.yml",
+    "href": "books.html#quarto.yml",
+    "title": "Books",
+    "section": "",
+    "text": "Adding buttons and links to the repo\nI find it useful to add automatically generated links to the site source code. So, for this project, the following YAML header adds those components site-wide.\nbook:\n  title: \"Quarto Quirks\"\n  author: \"Rick Gilmore\"\n  chapters:\n    - index.qmd\n    - meta.qmd\n    - books.qmd\n    - slides.qmd\n    - sites.qmd\n  repo-url: https://github.com/rogilmore/quarto-quirks\n  repo-actions: [edit, issue]\n  repo-subdir: src\nThe repo-url: is self-explanatory. If you’re using a separate src/ directory, then the repo-subdir: parameter specifies that. If the source code is in the project root directory, you need not specify a value for this parameter. It defaults to the project root.\nTo be clear, no one has yet filed an issue or made a pull request. But they could, and I like the transparency this permits.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Books</span>"
     ]
@@ -94,7 +104,57 @@
     "href": "sites.html",
     "title": "Sites",
     "section": "",
-    "text": "GitHub repo",
+    "text": "GitHub repo\nAs with other output types, I start by creating a GitHub repo.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html#github-repo",
+    "href": "sites.html#github-repo",
+    "title": "Sites",
+    "section": "",
+    "text": "Class or workshop site\nIf the site is for a specific class or workshop, I usually create the repo under a GitHub organization.\nMy Psychology Department teaching sites go under the ‘psu-psychology’ organization, found at https://github.com/psu-psychology.\nSites related to the Penn State Open Science initiative go under the ‘penn-state-open-science’ organization found at https://github.com/penn-state-open-science.\nWithin the specific organization, I then create a new repo with a descriptive name and a date: ‘psych-490-reproducibility-2024-fall’ for example. When I publish this course site with this name, the URL will be as follows:\nhttps://psu-psychology.github.io/psych-490-reproducibility-2024-fall\nThat’s a tad long, but eminently human readable.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html#directory-structure",
+    "href": "sites.html#directory-structure",
+    "title": "Sites",
+    "section": "Directory structure",
+    "text": "Directory structure\nAgain, I prefer separate src/ and docs/ directories.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html#quarto.yml-parameters",
+    "href": "sites.html#quarto.yml-parameters",
+    "title": "Sites",
+    "section": "_quarto.yml parameters",
+    "text": "_quarto.yml parameters\nI list below most of the components of the _quarto.yml file for PSYCH 490.\nNote that output is directed to ../docs because the source files in this project (and the _quarto.yml file) are located in a separate src/ directory.\nAlso note that the navbar: parameters consist of a set of href: parameters that specify specific Quarto (.qmd) files and a text: label that will be shown in the navigation bar. The left: parameter means these will be left-justified.\nMenus of files can be generated by specifying the text: label for the menu and a set of associated files under menu:. Here I’ve created a subdirectory under src/ called exercises/ to hold the Quarto documents for each exercise. This keeps the directory structure easy to follow. But it means that whenever I link to an exercise from somewhere else in the site, I have to specify the full path. For example, from schedule.qmd, I have to specify exercises/ex01-read-a-scientific-paper.qmd to link to that document.\nproject:\n  type: website\n  output-dir: \"../docs\"\n\nwebsite:\n  title: \"PSYCH 490 • Fall 2024\"\n  navbar:\n    left:\n      - href: index.qmd\n        text: home\n      - href: about.qmd\n        text: about\n      - href: schedule.qmd\n        text: schedule\n      - href: evaluation.qmd\n        text: evaluation\n      - href: deadlines.qmd\n        text: deadlines\n      - href: policies.qmd\n        text: policies\n      - href: values.qmd\n        text: values\n      - text: exercises\n        menu: \n          - href: \"exercises/ex01-read-a-scientific-paper.qmd\"\n          - href: \"exercises/ex02-textbook-findings.qmd\"\n          - href: \"exercises/ex03-norms-counternorms.qmd\"\n          - href: \"exercises/ex04-scientific-integrity.qmd\"\n          - href: \"exercises/ex05-p-hacking.qmd\"\n          - href: \"exercises/ex06-apes.qmd\"\n          - href: \"exercises/ex07-replication.qmd\"\n          - href: \"exercises/ex08-sharing.qmd\"\n          - href: \"exercises/final-project.qmd\"\n      - text: surveys\n        menu:\n          - href: \"surveys/survey-01.qmd\"",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html#rendering",
+    "href": "sites.html#rendering",
+    "title": "Sites",
+    "section": "Rendering",
+    "text": "Rendering\nRunning quarto render src will render all *.qmd files in src/ and its subdirectories, as long as those subdirectories are not preceded by an underscore (_). So, when I am reusing slides from a past year’s course, I often put them in _notes/ directory so they are readily at-hand, but are not re-rendered.\nTo have more control over which subdirectories get rendered, you can modify _quarto.yml by adding a render: parameter to the project: metadata:\nproject:\n  type: website\n  render:\n    - \"./*.qmd\"\n    - \"exercises/*.qmd\"\n    - \"surveys/*.qmd\"\n  output-dir: \"../docs\"\nThis can be useful when the site has many files, especially ones that involve computation. There are other ways to “freeze” documents whose contents do not need to be regenerated.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
+    ]
+  },
+  {
+    "objectID": "sites.html#mixed-output-types",
+    "href": "sites.html#mixed-output-types",
+    "title": "Sites",
+    "section": "Mixed output types",
+    "text": "Mixed output types\nA couple of semesters back, I figured out how to create a single website that mixes the “page” style of a website with RevealJS slides. The key is to create a separate directory for my lecture notes, and then specify in the YAML header information for the Quarto documents in that folder that they are RevealJS slides.\nSo, in the case of PSYCH 490, I have a src/notes directory, and one of the slide files there has the following YAML header data:\ntitle: \"Course intro\"\nsubtitle: \"2024-08-26 Mon\"\nauthor: \"Rick Gilmore\"\nformat: \n  revealjs:\n    footer: \"[PSYCH 490.012 • Fall 2024](../index.html)\"\n    slide-number: true\nbibliography: [../include/bib/packages.bib, ../include/bib/psu-repro.bib]\ncsl: ../include/bib/apa.csl\ncss: ../include/css/styles.css\nThe title: and subtitle: fields are custom to each set of slides. The others are consistent across slides. Note that the footer: parameter creates a link back to the home page of the site. This makes the slides part of the site. Also note that the bibliography:, csl:, and css: parameters specify the path from the notes/ directory to the include/ directory and its components. This is critical to take advantage of Quarto’s built-in citation generation features.\nI go back and forth about whether to create a notes/ menu item with links to specific lecture notes or simply embed them in the schedule.qmd file. The menu can get very crowded with too many choices. So, this term I’m not creating a separate notes/slides menu.\n\n\n\n\n\n\nNote\n\n\n\nOn my to-do list this term is to figure out how to create a folder-specific YAML file with some of the common parameters.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Sites</span>"
     ]
