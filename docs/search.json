@@ -100,6 +100,16 @@
     ]
   },
   {
+    "objectID": "slides.html#center-citation-below-figure",
+    "href": "slides.html#center-citation-below-figure",
+    "title": "Slides",
+    "section": "Center citation below figure",
+    "text": "Center citation below figure\nFor manuscript-like documents, I understand why Quarto defaults to left-justified citations. But when I cite a figure or image source, I like the citation to be centered.\nTo do this, add the following to the relevant CSS for the slide(s):\nfigcaption {\n  margin: auto;\n  text-align: center;\n}\nI’m still looking for a solution to centering the citation for a video.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
+    ]
+  },
+  {
     "objectID": "sites.html",
     "href": "sites.html",
     "title": "Sites",

@@ -22,3 +22,18 @@ file needed.
 I simply create `index.qmd`, and an `include/` directory, then render the output
 to the project root.
 
+## Center citation below figure
+
+For manuscript-like documents, I understand why Quarto defaults to left-justified citations.
+But when I cite a figure or image source, I like the citation to be centered.
+
+To do this, add the following to the relevant CSS for the slide(s):
+
+```css
+figcaption {
+  margin: auto;
+  text-align: center;
+}
+```
+
+I'm still looking for a solution to centering the citation for a video.
