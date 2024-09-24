@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sites – Quarto Quirks</title>
+<title>Plots – Quarto Quirks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./plots.html" rel="next">
-<link href="./slides.html" rel="prev">
+<link href="./sites.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sites.html"><span class="chapter-title">Sites</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./plots.html"><span class="chapter-title">Plots</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,12 +164,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sites.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sites</span></a>
+  <a href="./sites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sites</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plots.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Plots</span></a>
+  <a href="./plots.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Plots</span></a>
   </div>
 </li>
     </ul>
@@ -149,23 +182,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#github-repo" id="toc-github-repo" class="nav-link active" data-scroll-target="#github-repo">GitHub repo</a>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#plotting-multiple-figures" id="toc-plotting-multiple-figures" class="nav-link" data-scroll-target="#plotting-multiple-figures">Plotting multiple figures</a>
   <ul class="collapse">
-  <li><a href="#class-or-workshop-site" id="toc-class-or-workshop-site" class="nav-link" data-scroll-target="#class-or-workshop-site">Class or workshop site</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#generate-some-data" id="toc-generate-some-data" class="nav-link" data-scroll-target="#generate-some-data">Generate some data</a></li>
+  <li><a href="#setup-metaprogramming" id="toc-setup-metaprogramming" class="nav-link" data-scroll-target="#setup-metaprogramming">Setup metaprogramming</a></li>
+  <li><a href="#responses-for-a" id="toc-responses-for-a" class="nav-link" data-scroll-target="#responses-for-a">Responses for: <code>a</code></a></li>
+  <li><a href="#responses-for-b" id="toc-responses-for-b" class="nav-link" data-scroll-target="#responses-for-b">Responses for: <code>b</code></a></li>
+  <li><a href="#responses-for-c" id="toc-responses-for-c" class="nav-link" data-scroll-target="#responses-for-c">Responses for: <code>c</code></a></li>
   </ul></li>
-  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a></li>
-  <li><a href="#quarto.yml-parameters" id="toc-quarto.yml-parameters" class="nav-link" data-scroll-target="#quarto.yml-parameters">_quarto.yml parameters</a></li>
-  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
-  <li><a href="#mixed-output-types" id="toc-mixed-output-types" class="nav-link" data-scroll-target="#mixed-output-types">Mixed output types</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/sites.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/plots.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Sites</span></h1>
+<h1 class="title"><span class="chapter-title">Plots</span></h1>
 </div>
 
 
@@ -177,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 31, 2024</p>
+      <p class="date-modified">September 24, 2024</p>
     </div>
   </div>
     
@@ -188,111 +223,193 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This chapter summarizes some things I have learned in creating web sites like those I use for my courses.</p>
-<section id="github-repo" class="level2">
-<h2 class="anchored" data-anchor-id="github-repo">GitHub repo</h2>
-<p>As with other output types, I start by creating a GitHub repo.</p>
-<section id="class-or-workshop-site" class="level3">
-<h3 class="anchored" data-anchor-id="class-or-workshop-site">Class or workshop site</h3>
-<p>If the site is for a specific class or workshop, I usually create the repo under a GitHub <a href="https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations">organization</a>.</p>
-<p>My Psychology Department teaching sites go under the ‘psu-psychology’ organization, found at <a href="https://github.com/psu-psychology" class="uri">https://github.com/psu-psychology</a>.</p>
-<p>Sites related to the Penn State Open Science initiative go under the ‘penn-state-open-science’ organization found at <a href="https://github.com/penn-state-open-science" class="uri">https://github.com/penn-state-open-science</a>.</p>
-<p>Within the specific organization, I then create a new repo with a descriptive name and a date: ‘psych-490-reproducibility-2024-fall’ for example. When I publish this course site with this name, the URL will be as follows:</p>
-<p><a href="https://psu-psychology.github.io/psych-490-reproducibility-2024-fall" class="uri">https://psu-psychology.github.io/psych-490-reproducibility-2024-fall</a></p>
-<p>That’s a tad long, but eminently human readable.</p>
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>This page documents some tricks for plotting</p>
 </section>
+<section id="plotting-multiple-figures" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-multiple-figures">Plotting multiple figures</h2>
+<p>Using principles of meta-programming, it’s possible and useful to generate similar figures programmatically.</p>
+<p>The following was loosely adapted from the <a href="">Survey-03 report</a> used in PSYCH 490.</p>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
 </section>
-<section id="directory-structure" class="level2">
-<h2 class="anchored" data-anchor-id="directory-structure">Directory structure</h2>
-<p>Again, I prefer separate <code>src/</code> and <code>docs/</code> directories.</p>
+<section id="generate-some-data" class="level3">
+<h3 class="anchored" data-anchor-id="generate-some-data">Generate some data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">a =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>), <span class="at">b =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">1</span>), <span class="at">c =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_dd <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">q_short =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">q_long =</span> <span class="fu">c</span>(<span class="st">"question for variable a"</span>, <span class="st">"question for variable b"</span>, <span class="st">"question for variable c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="quarto.yml-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="quarto.yml-parameters">_quarto.yml parameters</h2>
-<p>I list below most of the components of the <code>_quarto.yml</code> file for PSYCH 490.</p>
-<p>Note that output is directed to <code>../docs</code> because the source files in this project (and the <code>_quarto.yml</code> file) are located in a separate <code>src/</code> directory.</p>
-<p>Also note that the <code>navbar:</code> parameters consist of a set of <code>href:</code> parameters that specify specific Quarto (<code>.qmd</code>) files and a <code>text:</code> label that will be shown in the navigation bar. The <code>left:</code> parameter means these will be left-justified.</p>
-<p>Menus of files can be generated by specifying the <code>text:</code> label for the menu and a set of associated files under <code>menu:</code>. Here I’ve created a subdirectory under <code>src/</code> called <code>exercises/</code> to hold the Quarto documents for each exercise. This keeps the directory structure easy to follow. But it means that whenever I link to an exercise from somewhere else in the site, I have to specify the full path. For example, from <code>schedule.qmd</code>, I have to specify <code>exercises/ex01-read-a-scientific-paper.qmd</code> to link to that document.</p>
-<pre><code>project:
-  type: website
-  output-dir: "../docs"
-
-website:
-  title: "PSYCH 490 • Fall 2024"
-  navbar:
-    left:
-      - href: index.qmd
-        text: home
-      - href: about.qmd
-        text: about
-      - href: schedule.qmd
-        text: schedule
-      - href: evaluation.qmd
-        text: evaluation
-      - href: deadlines.qmd
-        text: deadlines
-      - href: policies.qmd
-        text: policies
-      - href: values.qmd
-        text: values
-      - text: exercises
-        menu: 
-          - href: "exercises/ex01-read-a-scientific-paper.qmd"
-          - href: "exercises/ex02-textbook-findings.qmd"
-          - href: "exercises/ex03-norms-counternorms.qmd"
-          - href: "exercises/ex04-scientific-integrity.qmd"
-          - href: "exercises/ex05-p-hacking.qmd"
-          - href: "exercises/ex06-apes.qmd"
-          - href: "exercises/ex07-replication.qmd"
-          - href: "exercises/ex08-sharing.qmd"
-          - href: "exercises/final-project.qmd"
-      - text: surveys
-        menu:
-          - href: "surveys/survey-01.qmd"</code></pre>
+<section id="setup-metaprogramming" class="level3">
+<h3 class="anchored" data-anchor-id="setup-metaprogramming">Setup metaprogramming</h3>
+<p>Define the functions.</p>
+<p>Retrieve the “long question” from a data dictionary data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the "long" question from the survey_03 data dictionary</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>retrieve_long_q <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">this_q_short=</span> <span class="st">"a"</span>, <span class="at">data_dict =</span> df_dd) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  assertthat<span class="sc">::</span><span class="fu">is.string</span>(this_q_short)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  data_dict <span class="sc">|&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(q_short <span class="sc">==</span> this_q_short) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(q_long) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">retrieve_long_q</span>(<span class="st">"a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "question for variable a"</code></pre>
+</div>
+</div>
+<p>Define the plotting function, the function to return its output, and the section function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>my_freq_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">data =</span> df, var) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(.data[[var]]) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_freqpoly</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                  <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="fu">c</span>(.<span class="dv">5</span>, <span class="fl">5.5</span>)) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlab</span>(<span class="st">"Rating"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>return_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">knit_child</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">c</span>(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"### Histogram for: `{var}`"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"```{r, echo = F}"</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">"print(my_freq_plot(data, var))"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"```"</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">envir =</span> <span class="fu">environment</span>(),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">quiet =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>return_section <span class="ot">&lt;-</span> <span class="cf">function</span>(data, var) {</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  chunk_hdr <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">knit_expand</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">"### Responses for: `{this_var}`"</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">this_var =</span> var)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Build fig.cap from ground up</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  fig_name <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"fig-dist-"</span>, var)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  fig_cap <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"'Distribution of responses to `"</span>, var, <span class="st">"`'"</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  fig_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"fig.cap = "</span>, fig_cap)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>  plot_chunk_hdr <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"```{r "</span>, fig_name, <span class="st">", echo = FALSE, warning = FALSE, "</span>, fig_caption, <span class="st">"}"</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  plot_chunk <span class="ot">&lt;-</span> <span class="fu">c</span>(plot_chunk_hdr,</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"print(my_freq_plot(data, var))"</span>,</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"```"</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  question_long <span class="ot">&lt;-</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Q: '"</span>, <span class="fu">retrieve_long_q</span>(var), <span class="st">"'"</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">knit_child</span>(</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">c</span>(chunk_hdr, plot_chunk, question_long),</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">envir =</span> <span class="fu">environment</span>(),</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">quiet =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Run using <code>lapply()</code>.</p>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>these_vars <span class="ot">&lt;-</span> <span class="fu">names</span>(df)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">invisible</span>(<span class="fu">lapply</span>(these_vars, return_section, <span class="at">data =</span> df))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">unlist</span>(res), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="rendering" class="level2">
-<h2 class="anchored" data-anchor-id="rendering">Rendering</h2>
-<p>Running <code>quarto render src</code> will render all <code>*.qmd</code> files in <code>src/</code> and its subdirectories, as long as those subdirectories are not preceded by an underscore (<code>_</code>). So, when I am reusing slides from a past year’s course, I often put them in <code>_notes/</code> directory so they are readily at-hand, but are not re-rendered.</p>
-<p>To have more control over which subdirectories get rendered, you can modify <code>_quarto.yml</code> by adding a <code>render:</code> parameter to the <code>project:</code> metadata:</p>
-<pre><code>project:
-  type: website
-  render:
-    - "./*.qmd"
-    - "exercises/*.qmd"
-    - "surveys/*.qmd"
-  output-dir: "../docs"</code></pre>
-<p>This can be useful when the site has many files, especially ones that involve computation. There are other ways to “freeze” documents whose contents do not need to be regenerated.</p>
+<section id="responses-for-a" class="level3">
+<h3 class="anchored" data-anchor-id="responses-for-a">Responses for: <code>a</code></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dist-a" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dist-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="plots_files/figure-html/fig-dist-a-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.1: Distribution of responses to <code>a</code>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Q: ‘question for variable a’</p>
 </section>
-<section id="mixed-output-types" class="level2">
-<h2 class="anchored" data-anchor-id="mixed-output-types">Mixed output types</h2>
-<p>A couple of semesters back, I figured out how to create a single website that mixes the “page” style of a website with RevealJS slides. The key is to create a separate directory for my lecture notes, and then specify in the YAML header information for the Quarto documents in that folder that they are RevealJS slides.</p>
-<p>So, in the case of <a href="https://github.com/psu-psychology/psych-490-reproducibility-2024-fall">PSYCH 490</a>, I have a <code>src/notes</code> directory, and one of the slide files there has the following YAML header data:</p>
-<pre><code>title: "Course intro"
-subtitle: "2024-08-26 Mon"
-author: "Rick Gilmore"
-format: 
-  revealjs:
-    footer: "[PSYCH 490.012 • Fall 2024](../index.html)"
-    slide-number: true
-bibliography: [../include/bib/packages.bib, ../include/bib/psu-repro.bib]
-csl: ../include/bib/apa.csl
-css: ../include/css/styles.css</code></pre>
-<p>The <code>title:</code> and <code>subtitle:</code> fields are custom to each set of slides. The others are consistent across slides. Note that the <code>footer:</code> parameter creates a link back to the home page of the site. This makes the slides part of the site. Also note that the <code>bibliography:</code>, <code>csl:</code>, and <code>css:</code> parameters specify the path <em>from the <code>notes/</code> directory</em> to the <code>include/</code> directory and its components. This is critical to take advantage of Quarto’s built-in citation generation features.</p>
-<p>I go back and forth about whether to create a <code>notes/</code> menu item with links to specific lecture notes or simply embed them in the <code>schedule.qmd</code> file. The menu can get very crowded with too many choices. So, this term I’m <em>not</em> creating a separate notes/slides menu.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="responses-for-b" class="level3">
+<h3 class="anchored" data-anchor-id="responses-for-b">Responses for: <code>b</code></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dist-b" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dist-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="plots_files/figure-html/fig-dist-b-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.2: Distribution of responses to <code>b</code>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Q: ‘question for variable b’</p>
+</section>
+<section id="responses-for-c" class="level3">
+<h3 class="anchored" data-anchor-id="responses-for-c">Responses for: <code>c</code></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-dist-c" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dist-c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="plots_files/figure-html/fig-dist-c-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dist-c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6.3: Distribution of responses to <code>c</code>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Q: ‘question for variable c’</p>
+<div class="callout callout-style-default callout-note callout-titled" title="*Post hoc* thoughts">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<em>Post hoc</em> thoughts
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>On my to-do list this term is to figure out how to create a folder-specific YAML file with some of the common parameters.</p>
+<p>The keys to getting this to work were as follows:</p>
+<ol type="1">
+<li><p>In <code>return_chunk()</code>, generate separate text strings for the header (<code>chunk_hdr</code>), plot chunk (<code>plot_chunk</code>), and long question. See also the sequence for building a suitable string for <code>fig.cap</code>.</p></li>
+<li><p>Combine these separate pieces within <code>knitr::knit_child()</code> with the <code>text=</code> parameter.</p></li>
+<li><p>In <code>my_freq_plot()</code>, use the <code>aes(.data[[var]])</code> syntax to turn the string value for <code>var</code> into an unquoted variable in the dataset.</p></li>
+</ol>
+<p>Bottom line: It’s always better to bite off smaller chunks.</p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -718,14 +835,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./slides.html" class="pagination-link" aria-label="Slides">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Slides</span></span>
+      <a href="./sites.html" class="pagination-link" aria-label="Sites">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Sites</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./plots.html" class="pagination-link" aria-label="Plots">
-        <span class="nav-page-text"><span class="chapter-title">Plots</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -733,4 +847,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/sites.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/plots.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

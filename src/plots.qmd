@@ -1,0 +1,120 @@
+# Plots
+
+## About
+
+This page documents some tricks for plotting
+
+## Plotting multiple figures
+
+Using principles of meta-programming, it's possible and useful to generate similar figures programmatically.
+
+The following was loosely adapted from the [Survey-03 report]() used in PSYCH 490.
+
+### Setup
+
+```{r}
+library(tidyverse)
+```
+
+### Generate some data
+
+```{r}
+df <- tibble::tibble(a = rnorm(100), b = rnorm(100, 1), c = rnorm(100, sd = 2))
+
+df_dd <- tibble::tibble(q_short = c("a", "b", "c"), q_long = c("question for variable a", "question for variable b", "question for variable c"))
+```
+
+### Setup metaprogramming
+
+Define the functions.
+
+Retrieve the "long question" from a data dictionary data frame.
+
+```{r, warning=FALSE}
+# Retrieve the "long" question from the survey_03 data dictionary
+retrieve_long_q <- function(this_q_short= "a", data_dict = df_dd) {
+  assertthat::is.string(this_q_short)
+  data_dict |>
+    filter(q_short == this_q_short) |>
+    select(q_long) |>
+    as.character()
+}
+
+retrieve_long_q("a")
+```
+  
+Define the plotting function, the function to return its output, and the section function.
+
+```{r, warning = FALSE}
+my_freq_plot <- function(data = df, var) {
+  data |>
+    ggplot() +
+    aes(.data[[var]]) +
+    geom_freqpoly(na.rm = TRUE,
+                  show.legend = FALSE,
+                  bins = 30) +
+    xlim(c(.5, 5.5)) +
+    xlab("Rating")
+}
+
+return_plot <- function(data, var) {
+  knitr::knit_child(
+    text = c(
+      "### Histogram for: `{{var}}`",
+      "\n",
+      "```{r, echo = F}",
+      "print(my_freq_plot(data, var))",
+      "```"
+    ),
+    envir = environment(),
+    quiet = TRUE
+  )
+}
+
+return_section <- function(data, var) {
+  chunk_hdr <- knitr::knit_expand(text = c("### Responses for: `{{this_var}}`",
+                                           "\n"),
+                                  this_var = var)
+  
+  # Build fig.cap from ground up
+  fig_name <- paste0("fig-dist-", var)
+  fig_cap <- paste0("'Distribution of responses to `", var, "`'")
+  fig_caption <- paste0("fig.cap = ", fig_cap)
+
+  plot_chunk_hdr <- paste0("```{r ", fig_name, ", echo = FALSE, warning = FALSE, ", fig_caption, "}")
+  
+  plot_chunk <- c(plot_chunk_hdr,
+                   "print(my_freq_plot(data, var))",
+                  "```")
+  
+  question_long <-
+    paste0("\nQ: '", retrieve_long_q(var), "'")
+  
+  knitr::knit_child(
+    text = c(chunk_hdr, plot_chunk, question_long),
+    envir = environment(),
+    quiet = TRUE
+  )
+}
+```
+
+Run using `lapply()`.
+
+```{r many-tables-lapply, results = "asis", warning=FALSE}
+these_vars <- names(df)
+
+res <- invisible(lapply(these_vars, return_section, data = df))
+cat(unlist(res), sep = "\n")
+```
+
+::: {.callout-note title="*Post hoc* thoughts"}
+The keys to getting this to work were as follows:
+
+1. In `return_chunk()`, generate separate text strings for the header (`chunk_hdr`), plot chunk (`plot_chunk`), and long question. See also the sequence for building a suitable string for `fig.cap`.
+
+2. Combine these separate pieces within `knitr::knit_child()` with the `text=` parameter.
+
+3. In `my_freq_plot()`, use the `aes(.data[[var]])` syntax to turn the string value for `var` into an unquoted variable in the dataset.
+
+Bottom line: It's always better to bite off smaller chunks.
+:::
