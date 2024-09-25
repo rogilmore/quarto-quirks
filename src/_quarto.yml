@@ -22,3 +22,5 @@ format:
     number-sections: false
     fig-align: center
     date-modified: last-modified
+    bibliography: include/bib/refs.bib
+    html-math-method: mathjax

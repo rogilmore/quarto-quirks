@@ -4,11 +4,34 @@
 
 This page documents some tricks for plotting
 
+## Error bars
+
+The following bit of code shows how to generate error bars using `geom_errorbar()`.
+
+```{r}
+library(tidyverse)
+#| label: fig-doyen-2012-ex01
+#| fig-cap: Plot of data from Experiment 1 in @Doyen2012-ib. Not in original paper.
+
+doyen_2012_ex01 <- tibble::tibble(speed = c(6.27, 6.39), 
+                                  prime = c("prime", "no-prime"), 
+                                  speed_sd = c(2.15, 1.11))
+
+doyen_2012_ex01 |>
+  ggplot() +
+  aes(prime, speed) +
+  geom_col() +
+  geom_errorbar(aes(ymin = (speed - speed_sd), 
+                    ymax = (speed + speed_sd)), width=.2) +
+  ylab("Speed (s)") +
+  xlab("")
+```
+
 ## Plotting multiple figures
 
 Using principles of meta-programming, it's possible and useful to generate similar figures programmatically.
 
-The following was loosely adapted from the [Survey-03 report]() used in PSYCH 490.
+The following was loosely adapted from the [Survey-03 report](https://psu-psychology.github.io/psych-490-reproducibility-2024-fall/surveys/survey-03.html) used in PSYCH 490.
 
 ### Setup
 
