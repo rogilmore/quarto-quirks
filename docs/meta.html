@@ -189,7 +189,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#modify-.gitignore" id="toc-modify-.gitignore" class="nav-link" data-scroll-target="#modify-.gitignore">Modify .gitignore</a></li>
   </ul></li>
-  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a></li>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a>
+  <ul class="collapse">
+  <li><a href="#includes" id="toc-includes" class="nav-link" data-scroll-target="#includes">Includes</a></li>
+  </ul></li>
   <li><a href="#create-_quarto.yml" id="toc-create-_quarto.yml" class="nav-link" data-scroll-target="#create-_quarto.yml">Create _quarto.yml</a></li>
   <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
   </ul>
@@ -212,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 31, 2024</p>
+      <p class="date-modified">September 25, 2024</p>
     </div>
   </div>
     
@@ -286,6 +289,11 @@ Note
 │   ├── bib
 │   │   └── refs.bib
 │   ├── css
+│   ├── fig
+│   │   ├── fig-dist-a-1.png
+│   │   ├── fig-dist-b-1.png
+│   │   ├── fig-dist-c-1.png
+│   │   └── fig-doyen-2012-ex01-1.png
 │   └── img
 ├── index.html
 ├── index.qmd
@@ -332,14 +340,41 @@ Note
 <p>The exception is for <code>{ggplot2}</code> commands. I find it much easier to load the library via <code>library(ggplot2)</code>, and then use the associated commands.</p>
 </div>
 </div>
+<section id="includes" class="level3">
+<h3 class="anchored" data-anchor-id="includes">Includes</h3>
+<p>Following some other expert I don’t recall, I like to create an <code>includes/</code> directory under <code>src/</code> where I put the following directories:</p>
+<ul>
+<li><code>bib</code>: for bibliographic files, e.g., <code>refs.bib</code>, and any <code>.csl</code> files.</li>
+<li><code>img</code>: for images I use as resources.</li>
+<li><code>fig</code>: for figures the code generates.</li>
+<li><code>css</code>: for CSS files.</li>
+</ul>
+<p>To make the <code>fig/</code> directory work properly, add the following YAML parameters to the site-wide or directory specific (<code>_metadata.yml</code>) file:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">knitr</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">opts_chunk</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig.path</span><span class="kw">:</span><span class="at"> include/fig/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The final slash (/) in the figure path (<code>fig.path</code>) parameter above is <em>critical</em>. If you omit it, each file name will include a prepended <code>fig</code> that you probably do not want.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="create-_quarto.yml" class="level2">
 <h2 class="anchored" data-anchor-id="create-_quarto.yml">Create _quarto.yml</h2>
 <p>The <code>_quarto.yml</code> files have specific parameters for each type of output.</p>
 <p>Note that when using a <code>src/</code> and <code>docs/</code> directory as described above, the <code>output-dir</code> parameter must be specified to give the path to the <code>docs/</code> directory from the <code>src/_quarto.yml</code> file.</p>
-<pre><code>project:
-  type: book
-  output-dir: "../docs"</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> </span><span class="st">"../docs"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rendering" class="level2">
 <h2 class="anchored" data-anchor-id="rendering">Rendering</h2>

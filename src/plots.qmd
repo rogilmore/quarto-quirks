@@ -4,12 +4,17 @@
 
 This page documents some tricks for plotting
 
+## Setup
+
+```{r}
+library(tidyverse)
+```
+
 ## Error bars
 
 The following bit of code shows how to generate error bars using `geom_errorbar()`.
 
 ```{r}
-library(tidyverse)
 #| label: fig-doyen-2012-ex01
 #| fig-cap: Plot of data from Experiment 1 in @Doyen2012-ib. Not in original paper.
 
@@ -32,12 +37,6 @@ doyen_2012_ex01 |>
 Using principles of meta-programming, it's possible and useful to generate similar figures programmatically.
 
 The following was loosely adapted from the [Survey-03 report](https://psu-psychology.github.io/psych-490-reproducibility-2024-fall/surveys/survey-03.html) used in PSYCH 490.
-
-### Setup
-
-```{r}
-library(tidyverse)
-```
 
 ### Generate some data
 
