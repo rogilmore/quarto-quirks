@@ -1,0 +1,101 @@
+# Diagrams
+
+## About
+
+This page documents some tips for making diagrams in Quarto.
+
+::: {.callout-warning}
+This is just a stub of a page.
+:::
+
+## Mermaid
+
+<http://mermaid.js.org>
+
+### Stock example
+
+From <https://quarto.org/docs/authoring/diagrams.html>
+
+```{mermaid}
+%%| label: fig-quarto-mermaid-default
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+I don't like that the text overflows the shapes.
+
+### [Mermaid.live](https://mermaid.live) example
+
+```{mermaid}
+flowchart TD
+    A[Christmas] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D[Laptop]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+## Graphviz
+
+<https://graphviz.org>
+
+### Stock example
+
+From <https://quarto.org/docs/authoring/diagrams.html#graphviz>
+
+```{dot}
+//| label: fig-quarto-graphviz-default
+graph G {
+  layout=neato
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```
+
+
+## DiagrammeR package
+
+<https://rich-iannone.github.io/DiagrammeR/index.html>
+
+### Stock example
+
+```{r}
+DiagrammeR::grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  A; B; C; D; E; F
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4; 5; 6; 7; 8
+
+  # several 'edge' statements
+  A->1 B->2 B->3 B->4 C->A
+  1->D E->A 2->4 1->5 1->F
+  E->6 4->6 5->7 6->7 3->8
+}
+")
+```
+
+It seems like Quarto and {DiagrammeR} don't play well together.
