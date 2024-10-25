@@ -9,7 +9,7 @@ This chapter summarizes some things I have learned in creating web books.
 I find it useful to add automatically generated links to the site source code.
 So, for this project, the following YAML header adds those components site-wide.
 
-```
+```yaml
 book:
   title: "Quarto Quirks"
   author: "Rick Gilmore"

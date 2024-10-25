@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>diagrams</title>
+<title>Diagrams – Quarto Quirks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,39 +57,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="diagrams_files/libs/clipboard/clipboard.min.js"></script>
-<script src="diagrams_files/libs/quarto-html/quarto.js"></script>
-<script src="diagrams_files/libs/quarto-html/popper.min.js"></script>
-<script src="diagrams_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="diagrams_files/libs/quarto-html/anchor.min.js"></script>
-<link href="diagrams_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="diagrams_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="diagrams_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="diagrams_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="diagrams_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="diagrams_files/libs/quarto-diagram/mermaid.min.js"></script>
-<script src="diagrams_files/libs/quarto-diagram/mermaid-init.js"></script>
-<link href="diagrams_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
-<link href="diagrams_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="diagrams_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="diagrams_files/libs/viz-1.8.2/viz.js"></script>
-<link href="diagrams_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-<script src="diagrams_files/libs/grViz-binding-1.0.11/grViz.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./plots.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
 
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./diagrams.html"><span class="chapter-title">Diagrams</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Quarto Quirks</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rogilmore/quarto-quirks/tree/main/src/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./meta.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Meta</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./books.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Books</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slides.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sites.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sites</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plots.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Plots</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./diagrams.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Diagrams</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#mermaid" id="toc-mermaid" class="nav-link" data-scroll-target="#mermaid">Mermaid</a>
+  <ul class="collapse">
+  <li><a href="#stock-example" id="toc-stock-example" class="nav-link" data-scroll-target="#stock-example">Stock example</a></li>
+  <li><a href="#mermaid.live-example" id="toc-mermaid.live-example" class="nav-link" data-scroll-target="#mermaid.live-example">Mermaid.live example</a></li>
+  </ul></li>
+  <li><a href="#graphviz" id="toc-graphviz" class="nav-link" data-scroll-target="#graphviz">Graphviz</a>
+  <ul class="collapse">
+  <li><a href="#stock-example-1" id="toc-stock-example-1" class="nav-link" data-scroll-target="#stock-example-1">Stock example</a></li>
+  </ul></li>
+  <li><a href="#diagrammer-package" id="toc-diagrammer-package" class="nav-link" data-scroll-target="#diagrammer-package">DiagrammeR package</a>
+  <ul class="collapse">
+  <li><a href="#stock-example-2" id="toc-stock-example-2" class="nav-link" data-scroll-target="#stock-example-2">Stock example</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/diagrams.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Diagrams</span></h1>
+</div>
 
 
 
-<section id="diagrams" class="level1">
-<h1>Diagrams</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">October 25, 2024</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p>This page documents some tips for making diagrams in Quarto.</p>
@@ -113,7 +263,7 @@ Warning
 <section id="stock-example" class="level3">
 <h3 class="anchored" data-anchor-id="stock-example">Stock example</h3>
 <p>From <a href="https://quarto.org/docs/authoring/diagrams.html" class="uri">https://quarto.org/docs/authoring/diagrams.html</a></p>
-<div class="cell" data-layout-align="default">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-quarto-mermaid-default" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -128,17 +278,17 @@ Warning
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-quarto-mermaid-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
+Figure&nbsp;7.1
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>I don’t like that the text overflows the shapes.</p>
+<p><del>I don’t like that the text overflows the shapes</del>.</p>
 </section>
 <section id="mermaid.live-example" class="level3">
 <h3 class="anchored" data-anchor-id="mermaid.live-example"><a href="https://mermaid.live">Mermaid.live</a> example</h3>
-<div class="cell" data-layout-align="default">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -155,6 +305,8 @@ Figure&nbsp;1
 </div>
 </div>
 </div>
+<p>The labels in these documents do <em>not</em> overrun the bounding shapes. That problem in my course notes must have to do with some CSS setting.</p>
+<p>Very strange. When I opened the file and rendered all of the documents, there was no overlap problem. When I rendered the <code>diagrams.qmd</code> document alone or then rendered all via <code>quarto render src</code>, the overlap problem returned.</p>
 </section>
 </section>
 <section id="graphviz" class="level2">
@@ -163,7 +315,7 @@ Figure&nbsp;1
 <section id="stock-example-1" class="level3">
 <h3 class="anchored" data-anchor-id="stock-example-1">Stock example</h3>
 <p>From <a href="https://quarto.org/docs/authoring/diagrams.html#graphviz" class="uri">https://quarto.org/docs/authoring/diagrams.html#graphviz</a></p>
-<div class="cell" data-layout-align="default">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-quarto-graphviz-default" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -303,7 +455,7 @@ Figure&nbsp;1
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-quarto-graphviz-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+Figure&nbsp;7.2
 </figcaption>
 </figure>
 </div>
@@ -340,17 +492,16 @@ Figure&nbsp;2
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-9e179e8cc0947ca6f267" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-9e179e8cc0947ca6f267">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  A; B; C; D; E; F\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  A->1 B->2 B->3 B->4 C->A\n  1->D E->A 2->4 1->5 1->F\n  E->6 4->6 5->7 6->7 3->8\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-5a94b1e1d192eb0b059d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-5a94b1e1d192eb0b059d">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  A; B; C; D; E; F\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  A->1 B->2 B->3 B->4 C->A\n  1->D E->A 2->4 1->5 1->F\n  E->6 4->6 5->7 6->7 3->8\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p>It seems like Quarto and {DiagrammeR} don’t play well together.</p>
-</section>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -771,9 +922,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./plots.html" class="pagination-link" aria-label="Plots">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Plots</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/diagrams.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

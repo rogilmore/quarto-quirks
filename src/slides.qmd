@@ -1,6 +1,6 @@
 # Slides
 
-This page describes some practices I use when generating RevealJS slide decks.
+This page describes some practices I use when generating [RevealJS](https://revealjs.com/) slide decks.
 
 ## GitHub repo
 
@@ -12,7 +12,7 @@ So, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits
 under a repo titled 'cpo-talk-radio-astronomy' that resides under my
 'rogilmore' GitHub account.
 I've set-up that account to host my blog, and so this means that this talk
-lives at `rick-gilmore.com/cpo-talk-radio-astronomy`.
+lives at [`rick-gilmore.com/cpo-talk-radio-astronomy`](https://rick-gilmore.com/cpo-talk-radio-astronomy).
 This talk should probably have had a date.
 
 The single repo per talk scheme works well in this case, and it involves
@@ -36,4 +36,24 @@ figcaption {
 }
 ```
 
+## Center citaition below video
+
 I'm still looking for a solution to centering the citation for a video.
+
+The following works, but I don't especially like it:
+
+``` {.markdown shortcodes="false"}
+{{< video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q >}}
+
+<p style="text-align: center;">
+@James2020-kf
+</p>
+```
+
+{{< video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q >}}
+
+<p style="text-align: center;">
+@James2020-kf
+</p>
+
+

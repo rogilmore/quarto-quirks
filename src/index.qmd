@@ -1,6 +1,7 @@
 # About
 
 This Quarto book documents some of the ways I like to use Quarto for [e-books](books.qmd), talk [slides](slides.qmd), [websites](sites.qmd), and [plots](plots.qmd).
+And I find that I like to make [diagrams](diagrams.qmd), too.
 
 Search engines are extremely useful tools for answering similar questions.
 Here, I try to capture specific implementations that I have found useful in my own work.

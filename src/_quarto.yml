@@ -16,6 +16,7 @@ book:
     - slides.qmd
     - sites.qmd
     - plots.qmd
+    - diagrams.qmd
   repo-url: https://github.com/rogilmore/quarto-quirks
   repo-actions: [edit, issue]
   repo-subdir: src

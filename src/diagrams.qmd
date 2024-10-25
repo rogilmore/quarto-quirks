@@ -25,7 +25,7 @@ flowchart LR
   C --> E[Result two]
 ```
 
-I don't like that the text overflows the shapes.
+~~I don't like that the text overflows the shapes~~.
 
 ### [Mermaid.live](https://mermaid.live) example
 
@@ -37,6 +37,12 @@ flowchart TD
     C -->|Two| E[iPhone]
     C -->|Three| F[fa:fa-car Car]
 ```
+
+The labels in these documents do *not* overrun the bounding shapes.
+That problem in my course notes must have to do with some CSS setting.
+
+Very strange. When I opened the file and rendered all of the documents, there was no overlap problem.
+When I rendered the `diagrams.qmd` document alone or then rendered all via `quarto render src`, the overlap problem returned.
 
 ## Graphviz
 
@@ -65,6 +71,7 @@ graph G {
   sleep -- runmem;
 }
 ```
+
 
 
 ## DiagrammeR package
@@ -98,4 +105,3 @@ digraph boxes_and_circles {
 ")
 ```
 
-It seems like Quarto and {DiagrammeR} don't play well together.

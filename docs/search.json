@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Quarto Quirks",
     "section": "",
-    "text": "About\nThis Quarto book documents some of the ways I like to use Quarto for e-books, talk slides, websites, and plots.\nSearch engines are extremely useful tools for answering similar questions. Here, I try to capture specific implementations that I have found useful in my own work.\nIn fairness to Quarto, this site has more to do with my quirks than Quarto’s. But I liked the alliteration.\n\n\n\n\n\n\nNote\n\n\n\nI now use Quarto regularly. But there are many, many things I do not yet know about how to use it most effectively. And I find that it’s easy to forget things I’ve figured out some months prior.",
+    "text": "About\nThis Quarto book documents some of the ways I like to use Quarto for e-books, talk slides, websites, and plots. And I find that I like to make diagrams, too.\nSearch engines are extremely useful tools for answering similar questions. Here, I try to capture specific implementations that I have found useful in my own work.\nIn fairness to Quarto, this site has more to do with my quirks than Quarto’s. But I liked the alliteration.\n\n\n\n\n\n\nNote\n\n\n\nI now use Quarto regularly. But there are many, many things I do not yet know about how to use it most effectively. And I find that it’s easy to forget things I’ve figured out some months prior.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>About</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "meta.html#directory-structure",
     "title": "Meta",
     "section": "Directory structure",
-    "text": "Directory structure\nI prefer that my project’s root directory have two subdirectories, src/, and docs/. The src/ directory is where the source code lives. The docs/ directory is where the rendered output goes.\nGitHub Pages permits the user to select the docs/ directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.\nUnder src/, I have now started creating an include/ directory that has separate subfolders for images (img/), CSS styles (css/), and references (bib/). This ensures that resources for other parts of the project are in a consistent location.\nThe dir_tree() function from the {fs} package makes it easy to show the structure.\n\n# Have to use `../src` because this document lives in the `src/` directory.\nfs::dir_tree(path = '../src')\n\n../src\n├── _quarto.yml\n├── books.qmd\n├── include\n│   ├── bib\n│   │   └── refs.bib\n│   ├── css\n│   ├── fig\n│   │   ├── fig-dist-a-1.png\n│   │   ├── fig-dist-b-1.png\n│   │   ├── fig-dist-c-1.png\n│   │   └── fig-doyen-2012-ex01-1.png\n│   └── img\n├── index.html\n├── index.qmd\n├── meta.qmd\n├── meta.rmarkdown\n├── plots.qmd\n├── site_libs\n│   ├── bootstrap\n│   │   ├── bootstrap-icons.css\n│   │   ├── bootstrap-icons.woff\n│   │   ├── bootstrap.min.css\n│   │   └── bootstrap.min.js\n│   ├── clipboard\n│   │   └── clipboard.min.js\n│   ├── quarto-html\n│   │   ├── anchor.min.js\n│   │   ├── popper.min.js\n│   │   ├── quarto-syntax-highlighting.css\n│   │   ├── quarto.js\n│   │   ├── tippy.css\n│   │   └── tippy.umd.min.js\n│   ├── quarto-nav\n│   │   ├── headroom.min.js\n│   │   └── quarto-nav.js\n│   └── quarto-search\n│       ├── autocomplete.umd.js\n│       ├── fuse.min.js\n│       └── quarto-search.js\n├── sites.qmd\n└── slides.qmd\n\n\n\n\n\n\n\n\nNote\n\n\n\nWith some rare exceptions, I prefer to call functions in packages using their full names, e.g., fs::dir_tree('src'). This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps {renv} keep track of my project’s package dependencies.\nThe exception is for {ggplot2} commands. I find it much easier to load the library via library(ggplot2), and then use the associated commands.\n\n\n\nIncludes\nFollowing some other expert I don’t recall, I like to create an includes/ directory under src/ where I put the following directories:\n\nbib: for bibliographic files, e.g., refs.bib, and any .csl files.\nimg: for images I use as resources.\nfig: for figures the code generates.\ncss: for CSS files.\n\nTo make the fig/ directory work properly, add the following YAML parameters to the site-wide or directory specific (_metadata.yml) file:\nknitr:\n  opts_chunk:\n    fig.path: include/fig/\n\n\n\n\n\n\nImportant\n\n\n\nThe final slash (/) in the figure path (fig.path) parameter above is critical. If you omit it, each file name will include a prepended fig that you probably do not want.",
+    "text": "Directory structure\nI prefer that my project’s root directory have two subdirectories, src/, and docs/. The src/ directory is where the source code lives. The docs/ directory is where the rendered output goes.\nGitHub Pages permits the user to select the docs/ directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.\nUnder src/, I have now started creating an include/ directory that has separate subfolders for images (img/), CSS styles (css/), and references (bib/). This ensures that resources for other parts of the project are in a consistent location.\nThe dir_tree() function from the {fs} package makes it easy to show the structure.\n\n# Have to use `../src` because this document lives in the `src/` directory.\nfs::dir_tree(path = '../src')\n\n../src\n├── _quarto.yml\n├── books.qmd\n├── diagrams.qmd\n├── include\n│   ├── bib\n│   │   └── refs.bib\n│   ├── css\n│   ├── fig\n│   │   ├── fig-dist-a-1.png\n│   │   ├── fig-dist-b-1.png\n│   │   ├── fig-dist-c-1.png\n│   │   └── fig-doyen-2012-ex01-1.png\n│   └── img\n├── index.html\n├── index.qmd\n├── meta.qmd\n├── meta.rmarkdown\n├── plots.qmd\n├── site_libs\n│   ├── bootstrap\n│   │   ├── bootstrap-icons.css\n│   │   ├── bootstrap-icons.woff\n│   │   ├── bootstrap.min.css\n│   │   └── bootstrap.min.js\n│   ├── clipboard\n│   │   └── clipboard.min.js\n│   ├── quarto-html\n│   │   ├── anchor.min.js\n│   │   ├── popper.min.js\n│   │   ├── quarto-syntax-highlighting.css\n│   │   ├── quarto.js\n│   │   ├── tippy.css\n│   │   └── tippy.umd.min.js\n│   ├── quarto-nav\n│   │   ├── headroom.min.js\n│   │   └── quarto-nav.js\n│   └── quarto-search\n│       ├── autocomplete.umd.js\n│       ├── fuse.min.js\n│       └── quarto-search.js\n├── sites.qmd\n└── slides.qmd\n\n\n\n\n\n\n\n\nNote\n\n\n\nWith some rare exceptions, I prefer to call functions in packages using their full names, e.g., fs::dir_tree('src'). This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps {renv} keep track of my project’s package dependencies.\nThe exception is for {ggplot2} commands. I find it much easier to load the library via library(ggplot2), and then use the associated commands.\n\n\n\nIncludes\nFollowing some other expert I don’t recall, I like to create an includes/ directory under src/ where I put the following directories:\n\nbib: for bibliographic files, e.g., refs.bib, and any .csl files.\nimg: for images I use as resources.\nfig: for figures the code generates.\ncss: for CSS files.\n\nTo make the fig/ directory work properly, add the following YAML parameters to the site-wide or directory specific (_metadata.yml) file:\nknitr:\n  opts_chunk:\n    fig.path: include/fig/\n\n\n\n\n\n\nImportant\n\n\n\nThe final slash (/) in the figure path (fig.path) parameter above is critical. If you omit it, each file name will include a prepended fig that you probably do not want.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "slides.html#center-citation-below-figure",
     "title": "Slides",
     "section": "Center citation below figure",
-    "text": "Center citation below figure\nFor manuscript-like documents, I understand why Quarto defaults to left-justified citations. But when I cite a figure or image source, I like the citation to be centered.\nTo do this, add the following to the relevant CSS for the slide(s):\nfigcaption {\n  margin: auto;\n  text-align: center;\n}\nI’m still looking for a solution to centering the citation for a video.",
+    "text": "Center citation below figure\nFor manuscript-like documents, I understand why Quarto defaults to left-justified citations. But when I cite a figure or image source, I like the citation to be centered.\nTo do this, add the following to the relevant CSS for the slide(s):\nfigcaption {\n  margin: auto;\n  text-align: center;\n}",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
     ]
@@ -207,6 +207,66 @@
     "text": "Plotting multiple figures\nUsing principles of meta-programming, it’s possible and useful to generate similar figures programmatically.\nThe following was loosely adapted from the Survey-03 report used in PSYCH 490.\n\nGenerate some data\n\ndf &lt;- tibble::tibble(a = rnorm(100), b = rnorm(100, 1), c = rnorm(100, sd = 2))\n\ndf_dd &lt;- tibble::tibble(q_short = c(\"a\", \"b\", \"c\"), q_long = c(\"question for variable a\", \"question for variable b\", \"question for variable c\"))\n\n\n\nSetup metaprogramming\nDefine the functions.\nRetrieve the “long question” from a data dictionary data frame.\n\n# Retrieve the \"long\" question from the survey_03 data dictionary\nretrieve_long_q &lt;- function(this_q_short= \"a\", data_dict = df_dd) {\n  assertthat::is.string(this_q_short)\n  data_dict |&gt;\n    filter(q_short == this_q_short) |&gt;\n    select(q_long) |&gt;\n    as.character()\n}\n\nretrieve_long_q(\"a\")\n\n[1] \"question for variable a\"\n\n\nDefine the plotting function, the function to return its output, and the section function.\n\nmy_freq_plot &lt;- function(data = df, var) {\n  data |&gt;\n    ggplot() +\n    aes(.data[[var]]) +\n    geom_freqpoly(na.rm = TRUE,\n                  show.legend = FALSE,\n                  bins = 30) +\n    xlim(c(.5, 5.5)) +\n    xlab(\"Rating\")\n}\n\nreturn_plot &lt;- function(data, var) {\n  knitr::knit_child(\n    text = c(\n      \"### Histogram for: `{var}`\",\n      \"\\n\",\n      \"```{r, echo = F}\",\n      \"print(my_freq_plot(data, var))\",\n      \"```\"\n    ),\n    envir = environment(),\n    quiet = TRUE\n  )\n}\n\nreturn_section &lt;- function(data, var) {\n  chunk_hdr &lt;- knitr::knit_expand(text = c(\"### Responses for: `{this_var}`\",\n                                           \"\\n\"),\n                                  this_var = var)\n  \n  # Build fig.cap from ground up\n  fig_name &lt;- paste0(\"fig-dist-\", var)\n  fig_cap &lt;- paste0(\"'Distribution of responses to `\", var, \"`'\")\n  fig_caption &lt;- paste0(\"fig.cap = \", fig_cap)\n\n  plot_chunk_hdr &lt;- paste0(\"```{r \", fig_name, \", echo = FALSE, warning = FALSE, \", fig_caption, \"}\")\n  \n  plot_chunk &lt;- c(plot_chunk_hdr,\n                   \"print(my_freq_plot(data, var))\",\n                  \"```\")\n  \n  question_long &lt;-\n    paste0(\"\\nQ: '\", retrieve_long_q(var), \"'\")\n  \n  knitr::knit_child(\n    text = c(chunk_hdr, plot_chunk, question_long),\n    envir = environment(),\n    quiet = TRUE\n  )\n}\n\nRun using lapply().\nthese_vars &lt;- names(df)\n\nres &lt;- invisible(lapply(these_vars, return_section, data = df))\ncat(unlist(res), sep = \"\\n\")\n\n\nResponses for: a\n\n\n\n\n\n\n\n\nFigure 6.2: Distribution of responses to a\n\n\n\n\n\nQ: ‘question for variable a’\n\n\nResponses for: b\n\n\n\n\n\n\n\n\nFigure 6.3: Distribution of responses to b\n\n\n\n\n\nQ: ‘question for variable b’\n\n\nResponses for: c\n\n\n\n\n\n\n\n\nFigure 6.4: Distribution of responses to c\n\n\n\n\n\nQ: ‘question for variable c’\n\n\n\n\n\n\nPost hoc thoughts\n\n\n\nThe keys to getting this to work were as follows:\n\nIn return_chunk(), generate separate text strings for the header (chunk_hdr), plot chunk (plot_chunk), and long question. See also the sequence for building a suitable string for fig.cap.\nCombine these separate pieces within knitr::knit_child() with the text= parameter.\nIn my_freq_plot(), use the aes(.data[[var]]) syntax to turn the string value for var into an unquoted variable in the dataset.\n\nBottom line: It’s always better to bite off smaller chunks.\n\n\n\n\n\n\nDoyen, Stéphane, Olivier Klein, Cora-Lise Pichon, and Axel Cleeremans. 2012. “Behavioral Priming: It’s All in the Mind, but Whose Mind?” PloS One 7 (1): e29081. https://doi.org/10.1371/journal.pone.0029081.",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Plots</span>"
+    ]
+  },
+  {
+    "objectID": "diagrams.html",
+    "href": "diagrams.html",
+    "title": "Diagrams",
+    "section": "",
+    "text": "About\nThis page documents some tips for making diagrams in Quarto.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Diagrams</span>"
+    ]
+  },
+  {
+    "objectID": "diagrams.html#about",
+    "href": "diagrams.html#about",
+    "title": "Diagrams",
+    "section": "",
+    "text": "Warning\n\n\n\nThis is just a stub of a page.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Diagrams</span>"
+    ]
+  },
+  {
+    "objectID": "diagrams.html#mermaid",
+    "href": "diagrams.html#mermaid",
+    "title": "Diagrams",
+    "section": "Mermaid",
+    "text": "Mermaid\nhttp://mermaid.js.org\n\nStock example\nFrom https://quarto.org/docs/authoring/diagrams.html\n\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\nFigure 7.1\n\n\n\n\n\nI don’t like that the text overflows the shapes.\n\n\nMermaid.live example\n\n\n\n\n\nflowchart TD\n    A[Christmas] --&gt;|Get money| B(Go shopping)\n    B --&gt; C{Let me think}\n    C --&gt;|One| D[Laptop]\n    C --&gt;|Two| E[iPhone]\n    C --&gt;|Three| F[fa:fa-car Car]\n\n\n\n\n\n\nThe labels in these documents do not overrun the bounding shapes. That problem in my course notes must have to do with some CSS setting.\nVery strange. When I opened the file and rendered all of the documents, there was no overlap problem. When I rendered the diagrams.qmd document alone or then rendered all via quarto render src, the overlap problem returned.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Diagrams</span>"
+    ]
+  },
+  {
+    "objectID": "diagrams.html#graphviz",
+    "href": "diagrams.html#graphviz",
+    "title": "Diagrams",
+    "section": "Graphviz",
+    "text": "Graphviz\nhttps://graphviz.org\n\nStock example\nFrom https://quarto.org/docs/authoring/diagrams.html#graphviz\n\n\n\n\n\n\n\n\nG\n\n\n\nrun\n\nrun\n\n\n\nintr\n\nintr\n\n\n\nrun--intr\n\n\n\n\nkernel\n\nkernel\n\n\n\nrun--kernel\n\n\n\n\nrunbl\n\nrunbl\n\n\n\nintr--runbl\n\n\n\n\nrunbl--run\n\n\n\n\nzombie\n\nzombie\n\n\n\nkernel--zombie\n\n\n\n\nsleep\n\nsleep\n\n\n\nkernel--sleep\n\n\n\n\nrunmem\n\nrunmem\n\n\n\nkernel--runmem\n\n\n\n\nsleep--runmem\n\n\n\n\nswap\n\nswap\n\n\n\nsleep--swap\n\n\n\n\nrunswap\n\nrunswap\n\n\n\nswap--runswap\n\n\n\n\nrunswap--runmem\n\n\n\n\nnew\n\nnew\n\n\n\nrunswap--new\n\n\n\n\nnew--runmem\n\n\n\n\n\n\n\nFigure 7.2",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Diagrams</span>"
+    ]
+  },
+  {
+    "objectID": "diagrams.html#diagrammer-package",
+    "href": "diagrams.html#diagrammer-package",
+    "title": "Diagrams",
+    "section": "DiagrammeR package",
+    "text": "DiagrammeR package\nhttps://rich-iannone.github.io/DiagrammeR/index.html\n\nStock example\n\nDiagrammeR::grViz(\"\ndigraph boxes_and_circles {\n\n  # a 'graph' statement\n  graph [overlap = true, fontsize = 10]\n\n  # several 'node' statements\n  node [shape = box,\n        fontname = Helvetica]\n  A; B; C; D; E; F\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several 'edge' statements\n  A-&gt;1 B-&gt;2 B-&gt;3 B-&gt;4 C-&gt;A\n  1-&gt;D E-&gt;A 2-&gt;4 1-&gt;5 1-&gt;F\n  E-&gt;6 4-&gt;6 5-&gt;7 6-&gt;7 3-&gt;8\n}\n\")",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Diagrams</span>"
+    ]
+  },
+  {
+    "objectID": "slides.html#center-citaition-below-video",
+    "href": "slides.html#center-citaition-below-video",
+    "title": "Slides",
+    "section": "Center citaition below video",
+    "text": "Center citaition below video\nI’m still looking for a solution to centering the citation for a video.\nThe following works, but I don’t especially like it:\n{{&lt; video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q &gt;}}\n\n&lt;p style=\"text-align: center;\"&gt;\n@James2020-kf\n&lt;/p&gt;\n\n\nJames (2020)\n\n\n\n\n\nJames, Morgan. 2020. “Bridge over Troubled Water by Simon and Garfunkel (Morgan James Cover).” Youtube. https://www.youtube.com/watch?v=yWy-wqRtFiI.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
     ]
   }
 ]

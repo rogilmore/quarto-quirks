@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -173,6 +193,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./plots.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Plots</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./diagrams.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Diagrams</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -185,6 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#github-repo" id="toc-github-repo" class="nav-link active" data-scroll-target="#github-repo">GitHub repo</a></li>
   <li><a href="#center-citation-below-figure" id="toc-center-citation-below-figure" class="nav-link" data-scroll-target="#center-citation-below-figure">Center citation below figure</a></li>
+  <li><a href="#center-citaition-below-video" id="toc-center-citaition-below-video" class="nav-link" data-scroll-target="#center-citaition-below-video">Center citaition below video</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/slides.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -205,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 4, 2024</p>
+      <p class="date-modified">October 25, 2024</p>
     </div>
   </div>
     
@@ -216,11 +242,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page describes some practices I use when generating RevealJS slide decks.</p>
+<p>This page describes some practices I use when generating <a href="https://revealjs.com/">RevealJS</a> slide decks.</p>
 <section id="github-repo" class="level2">
 <h2 class="anchored" data-anchor-id="github-repo">GitHub repo</h2>
 <p>For many years, I have made separate repositories for each talk. Course lectures are a special case. I’ll talk about them later.</p>
-<p>So, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits under a repo titled ‘cpo-talk-radio-astronomy’ that resides under my ‘rogilmore’ GitHub account. I’ve set-up that account to host my blog, and so this means that this talk lives at <code>rick-gilmore.com/cpo-talk-radio-astronomy</code>. This talk should probably have had a date.</p>
+<p>So, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits under a repo titled ‘cpo-talk-radio-astronomy’ that resides under my ‘rogilmore’ GitHub account. I’ve set-up that account to host my blog, and so this means that this talk lives at <a href="https://rick-gilmore.com/cpo-talk-radio-astronomy"><code>rick-gilmore.com/cpo-talk-radio-astronomy</code></a>. This talk should probably have had a date.</p>
 <p>The single repo per talk scheme works well in this case, and it involves a simpler file directory organization on my local machine. I do not create separate <code>src/</code> and <code>docs/</code> directories, nor is a <code>_quarto.yml</code> file needed. I simply create <code>index.qmd</code>, and an <code>include/</code> directory, then render the output to the project root.</p>
 </section>
 <section id="center-citation-below-figure" class="level2">
@@ -231,9 +257,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span><span class="ch">:</span> <span class="bu">auto</span><span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">center</span><span class="op">;</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="center-citaition-below-video" class="level2">
+<h2 class="anchored" data-anchor-id="center-citaition-below-video">Center citaition below video</h2>
 <p>I’m still looking for a solution to centering the citation for a video.</p>
+<p>The following works, but I don’t especially like it:</p>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q &gt;}}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;p style="text-align: center;"&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>@James2020-kf</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/yWy-wqRtFiI?si=NJb47y9fA41Kga4q" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p style="text-align: center;">
+<span class="citation" data-cites="James2020-kf">James (<a href="#ref-James2020-kf" role="doc-biblioref">2020</a>)</span>
+</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-James2020-kf" class="csl-entry" role="listitem">
+James, Morgan. 2020. <span>“Bridge over Troubled Water by Simon and Garfunkel (Morgan James Cover).”</span> Youtube. <a href="https://www.youtube.com/watch?v=yWy-wqRtFiI">https://www.youtube.com/watch?v=yWy-wqRtFiI</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
