@@ -56,4 +56,15 @@ The following works, but I don't especially like it:
 @James2020-kf
 </p>
 
+---
+
+This is another thing to try using a div marked with triple colons: `:::`
+
+::: {.center-text}
+
+{{< video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q >}}
+
+@James2020-kf
+
+:::
 

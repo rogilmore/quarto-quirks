@@ -44,7 +44,7 @@
     "href": "meta.html#directory-structure",
     "title": "Meta",
     "section": "Directory structure",
-    "text": "Directory structure\nI prefer that my project’s root directory have two subdirectories, src/, and docs/. The src/ directory is where the source code lives. The docs/ directory is where the rendered output goes.\nGitHub Pages permits the user to select the docs/ directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.\nUnder src/, I have now started creating an include/ directory that has separate subfolders for images (img/), CSS styles (css/), and references (bib/). This ensures that resources for other parts of the project are in a consistent location.\nThe dir_tree() function from the {fs} package makes it easy to show the structure.\n\n# Have to use `../src` because this document lives in the `src/` directory.\nfs::dir_tree(path = '../src')\n\n../src\n├── _quarto.yml\n├── books.qmd\n├── diagrams.qmd\n├── include\n│   ├── bib\n│   │   └── refs.bib\n│   ├── css\n│   ├── fig\n│   │   ├── fig-dist-a-1.png\n│   │   ├── fig-dist-b-1.png\n│   │   ├── fig-dist-c-1.png\n│   │   └── fig-doyen-2012-ex01-1.png\n│   └── img\n├── index.html\n├── index.qmd\n├── meta.qmd\n├── meta.rmarkdown\n├── plots.qmd\n├── site_libs\n│   ├── bootstrap\n│   │   ├── bootstrap-icons.css\n│   │   ├── bootstrap-icons.woff\n│   │   ├── bootstrap.min.css\n│   │   └── bootstrap.min.js\n│   ├── clipboard\n│   │   └── clipboard.min.js\n│   ├── quarto-html\n│   │   ├── anchor.min.js\n│   │   ├── popper.min.js\n│   │   ├── quarto-syntax-highlighting.css\n│   │   ├── quarto.js\n│   │   ├── tippy.css\n│   │   └── tippy.umd.min.js\n│   ├── quarto-nav\n│   │   ├── headroom.min.js\n│   │   └── quarto-nav.js\n│   └── quarto-search\n│       ├── autocomplete.umd.js\n│       ├── fuse.min.js\n│       └── quarto-search.js\n├── sites.qmd\n└── slides.qmd\n\n\n\n\n\n\n\n\nNote\n\n\n\nWith some rare exceptions, I prefer to call functions in packages using their full names, e.g., fs::dir_tree('src'). This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps {renv} keep track of my project’s package dependencies.\nThe exception is for {ggplot2} commands. I find it much easier to load the library via library(ggplot2), and then use the associated commands.\n\n\n\nIncludes\nFollowing some other expert I don’t recall, I like to create an includes/ directory under src/ where I put the following directories:\n\nbib: for bibliographic files, e.g., refs.bib, and any .csl files.\nimg: for images I use as resources.\nfig: for figures the code generates.\ncss: for CSS files.\n\nTo make the fig/ directory work properly, add the following YAML parameters to the site-wide or directory specific (_metadata.yml) file:\nknitr:\n  opts_chunk:\n    fig.path: include/fig/\n\n\n\n\n\n\nImportant\n\n\n\nThe final slash (/) in the figure path (fig.path) parameter above is critical. If you omit it, each file name will include a prepended fig that you probably do not want.",
+    "text": "Directory structure\nI prefer that my project’s root directory have two subdirectories, src/, and docs/. The src/ directory is where the source code lives. The docs/ directory is where the rendered output goes.\nGitHub Pages permits the user to select the docs/ directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.\nUnder src/, I have now started creating an include/ directory that has separate subfolders for images (img/), CSS styles (css/), and references (bib/). This ensures that resources for other parts of the project are in a consistent location.\nThe dir_tree() function from the {fs} package makes it easy to show the structure.\n\n# Have to use `../src` because this document lives in the `src/` directory.\nfs::dir_tree(path = '../src')\n\n../src\n├── _quarto.yml\n├── books.qmd\n├── diagrams.qmd\n├── embeds.qmd\n├── include\n│   ├── bib\n│   │   └── refs.bib\n│   ├── css\n│   ├── fig\n│   │   ├── fig-dist-a-1.png\n│   │   ├── fig-dist-b-1.png\n│   │   ├── fig-dist-c-1.png\n│   │   └── fig-doyen-2012-ex01-1.png\n│   └── img\n├── index.html\n├── index.qmd\n├── meta.qmd\n├── meta.rmarkdown\n├── plots.qmd\n├── site_libs\n│   ├── bootstrap\n│   │   ├── bootstrap-icons.css\n│   │   ├── bootstrap-icons.woff\n│   │   ├── bootstrap.min.css\n│   │   └── bootstrap.min.js\n│   ├── clipboard\n│   │   └── clipboard.min.js\n│   ├── quarto-html\n│   │   ├── anchor.min.js\n│   │   ├── popper.min.js\n│   │   ├── quarto-syntax-highlighting.css\n│   │   ├── quarto.js\n│   │   ├── tippy.css\n│   │   └── tippy.umd.min.js\n│   ├── quarto-nav\n│   │   ├── headroom.min.js\n│   │   └── quarto-nav.js\n│   └── quarto-search\n│       ├── autocomplete.umd.js\n│       ├── fuse.min.js\n│       └── quarto-search.js\n├── sites.qmd\n└── slides.qmd\n\n\n\n\n\n\n\n\nNote\n\n\n\nWith some rare exceptions, I prefer to call functions in packages using their full names, e.g., fs::dir_tree('src'). This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps {renv} keep track of my project’s package dependencies.\nThe exception is for {ggplot2} commands. I find it much easier to load the library via library(ggplot2), and then use the associated commands.\n\n\n\nIncludes\nFollowing some other expert I don’t recall, I like to create an includes/ directory under src/ where I put the following directories:\n\nbib: for bibliographic files, e.g., refs.bib, and any .csl files.\nimg: for images I use as resources.\nfig: for figures the code generates.\ncss: for CSS files.\n\nTo make the fig/ directory work properly, add the following YAML parameters to the site-wide or directory specific (_metadata.yml) file:\nknitr:\n  opts_chunk:\n    fig.path: include/fig/\n\n\n\n\n\n\nImportant\n\n\n\nThe final slash (/) in the figure path (fig.path) parameter above is critical. If you omit it, each file name will include a prepended fig that you probably do not want.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Meta</span>"
     ]
@@ -94,7 +94,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "GitHub repo\nFor many years, I have made separate repositories for each talk. Course lectures are a special case. I’ll talk about them later.\nSo, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits under a repo titled ‘cpo-talk-radio-astronomy’ that resides under my ‘rogilmore’ GitHub account. I’ve set-up that account to host my blog, and so this means that this talk lives at rick-gilmore.com/cpo-talk-radio-astronomy. This talk should probably have had a date.\nThe single repo per talk scheme works well in this case, and it involves a simpler file directory organization on my local machine. I do not create separate src/ and docs/ directories, nor is a _quarto.yml file needed. I simply create index.qmd, and an include/ directory, then render the output to the project root.",
+    "text": "GitHub repo\nThis page describes some practices I use when generating RevealJS slide decks.\nFor many years, I have made separate repositories for each talk. Course lectures are a special case. I’ll talk about them later.\nSo, my talk to the Central Pennsylvania Observers (CPO) astronomy club sits under a repo titled ‘cpo-talk-radio-astronomy’ that resides under my ‘rogilmore’ GitHub account. I’ve set-up that account to host my blog, and so this means that this talk lives at rick-gilmore.com/cpo-talk-radio-astronomy. This talk should probably have had a date.\nThe single repo per talk scheme works well in this case, and it involves a simpler file directory organization on my local machine. I do not create separate src/ and docs/ directories, nor is a _quarto.yml file needed. I simply create index.qmd, and an include/ directory, then render the output to the project root.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
     ]
@@ -105,6 +105,16 @@
     "title": "Slides",
     "section": "Center citation below figure",
     "text": "Center citation below figure\nFor manuscript-like documents, I understand why Quarto defaults to left-justified citations. But when I cite a figure or image source, I like the citation to be centered.\nTo do this, add the following to the relevant CSS for the slide(s):\nfigcaption {\n  margin: auto;\n  text-align: center;\n}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
+    ]
+  },
+  {
+    "objectID": "slides.html#center-citaition-below-video",
+    "href": "slides.html#center-citaition-below-video",
+    "title": "Slides",
+    "section": "Center citaition below video",
+    "text": "Center citaition below video\nI’m still looking for a solution to centering the citation for a video.\nThe following works, but I don’t especially like it:\n{{&lt; video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q &gt;}}\n\n&lt;p style=\"text-align: center;\"&gt;\n@James2020-kf\n&lt;/p&gt;\n\n\nJames (2020)\n\n\nThis is another thing to try using a div marked with triple colons: :::\n\n\nJames (2020)\n\n\n\n\n\nJames, Morgan. 2020. “Bridge over Troubled Water by Simon and Garfunkel (Morgan James Cover).” Youtube. https://www.youtube.com/watch?v=yWy-wqRtFiI.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
     ]
@@ -260,13 +270,13 @@
     ]
   },
   {
-    "objectID": "slides.html#center-citaition-below-video",
-    "href": "slides.html#center-citaition-below-video",
-    "title": "Slides",
-    "section": "Center citaition below video",
-    "text": "Center citaition below video\nI’m still looking for a solution to centering the citation for a video.\nThe following works, but I don’t especially like it:\n{{&lt; video https://youtu.be/yWy-wqRtFiI?si=NJb47y9fA41Kga4q &gt;}}\n\n&lt;p style=\"text-align: center;\"&gt;\n@James2020-kf\n&lt;/p&gt;\n\n\nJames (2020)\n\n\n\n\n\nJames, Morgan. 2020. “Bridge over Troubled Water by Simon and Garfunkel (Morgan James Cover).” Youtube. https://www.youtube.com/watch?v=yWy-wqRtFiI.",
+    "objectID": "embeds.html",
+    "href": "embeds.html",
+    "title": "Embeds",
+    "section": "",
+    "text": "Google Calendar",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Slides</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Embeds</span>"
     ]
   }
 ]

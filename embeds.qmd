@@ -1,0 +1,7 @@
+# Embeds
+
+## Google Calendar
+
+<iframe src="https://calendar.google.com/calendar/embed?src=n0491u4fblo9ii3r7jd229do00%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="700" height="600" frameborder="0" scrolling="no"></iframe>
+
+<iframe src="https://calendar.google.com/calendar/embed?src=38c910a83433d3c75b4ff3072a64c8523246afba737856091f5c621a430b8a5c%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="700" height="600" frameborder="0" scrolling="no"></iframe>

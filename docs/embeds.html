@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Meta – Quarto Quirks</title>
+<title>Embeds – Quarto Quirks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./books.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./diagrams.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./meta.html"><span class="chapter-title">Meta</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./embeds.html"><span class="chapter-title">Embeds</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -150,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./meta.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Meta</span></a>
+  <a href="./meta.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Meta</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./embeds.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Embeds</span></a>
+  <a href="./embeds.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Embeds</span></a>
   </div>
 </li>
     </ul>
@@ -193,27 +158,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#github" id="toc-github" class="nav-link active" data-scroll-target="#github">Github</a></li>
-  <li><a href="#rstudio-projects" id="toc-rstudio-projects" class="nav-link" data-scroll-target="#rstudio-projects">RStudio projects</a></li>
-  <li><a href="#dependency-management" id="toc-dependency-management" class="nav-link" data-scroll-target="#dependency-management">Dependency management</a>
-  <ul class="collapse">
-  <li><a href="#modify-.gitignore" id="toc-modify-.gitignore" class="nav-link" data-scroll-target="#modify-.gitignore">Modify .gitignore</a></li>
-  </ul></li>
-  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory structure</a>
-  <ul class="collapse">
-  <li><a href="#includes" id="toc-includes" class="nav-link" data-scroll-target="#includes">Includes</a></li>
-  </ul></li>
-  <li><a href="#create-_quarto.yml" id="toc-create-_quarto.yml" class="nav-link" data-scroll-target="#create-_quarto.yml">Create _quarto.yml</a></li>
-  <li><a href="#rendering" id="toc-rendering" class="nav-link" data-scroll-target="#rendering">Rendering</a></li>
+  <li><a href="#google-calendar" id="toc-google-calendar" class="nav-link active" data-scroll-target="#google-calendar">Google Calendar</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/meta.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/embeds.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Meta</span></h1>
+<h1 class="title"><span class="chapter-title">Embeds</span></h1>
 </div>
 
 
@@ -225,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 25, 2024</p>
+      <p class="date-modified">November 1, 2024</p>
     </div>
   </div>
     
@@ -236,162 +190,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This page documents some practices that make my workflow more efficient.</p>
-<section id="github" class="level2">
-<h2 class="anchored" data-anchor-id="github">Github</h2>
-<p>Almost every project starts with a new GitHub repository.</p>
-<p>I try to create a repo name that would make a reasonably informative web site name. That way I can use the GitHub Pages feature to host the site.</p>
-</section>
-<section id="rstudio-projects" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-projects">RStudio projects</h2>
-<p>Once I have created a repo on GitHub and copied it to my clipboard, I open RStudio and create a new project.</p>
-</section>
-<section id="dependency-management" class="level2">
-<h2 class="anchored" data-anchor-id="dependency-management">Dependency management</h2>
-<p>I am now using <code>{renv}</code> to manage package dependencies. So, once I have created the project, I run <code>renv::init()</code> to initialize the project for <code>renv()</code>.</p>
-<p>To add a package, I run <code>install.packages(&lt;pkg_name&gt;)</code>. Then, I run <code>renv::snapshot()</code> to add that package to the list of dependencies. Running <code>renv::status()</code> is a good idea, also.</p>
-<section id="modify-.gitignore" class="level3">
-<h3 class="anchored" data-anchor-id="modify-.gitignore">Modify .gitignore</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The <code>.gitignore</code> file keeps track of the files that you do <em>not</em> want to submit to version control and thus do <em>not</em> want to push to GitHub.</p>
-</div>
-</div>
-<p>This is a good time to make our first git commit. I right-click on the <code>*.Rproj</code> project and <code>.Rprofile</code> files since those are specific to me. Then I add all of the other files to the commit, add a commit message like ‘initial commit’, and make the commit.</p>
-<p>To test the GitHub connection, one can push the commit.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>I know that there are ways to automate interactions with GitHub. Learning those are on my to-do list.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="directory-structure" class="level2">
-<h2 class="anchored" data-anchor-id="directory-structure">Directory structure</h2>
-<p>I prefer that my project’s root directory have two subdirectories, <code>src/</code>, and <code>docs/</code>. The <code>src/</code> directory is where the source code lives. The <code>docs/</code> directory is where the rendered output goes.</p>
-<p>GitHub Pages permits the user to select the <code>docs/</code> directory for building a site. So, this structure makes that process very clean when it comes time to publish a site.</p>
-<p>Under <code>src/</code>, I have now started creating an <code>include/</code> directory that has separate subfolders for images (<code>img/</code>), CSS styles (<code>css/</code>), and references (<code>bib/</code>). This ensures that resources for other parts of the project are in a consistent location.</p>
-<p>The <code>dir_tree()</code> function from the <code>{fs}</code> package makes it easy to show the structure.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Have to use `../src` because this document lives in the `src/` directory.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(<span class="at">path =</span> <span class="st">'../src'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>../src
-├── _quarto.yml
-├── books.qmd
-├── diagrams.qmd
-├── embeds.qmd
-├── include
-│   ├── bib
-│   │   └── refs.bib
-│   ├── css
-│   ├── fig
-│   │   ├── fig-dist-a-1.png
-│   │   ├── fig-dist-b-1.png
-│   │   ├── fig-dist-c-1.png
-│   │   └── fig-doyen-2012-ex01-1.png
-│   └── img
-├── index.html
-├── index.qmd
-├── meta.qmd
-├── meta.rmarkdown
-├── plots.qmd
-├── site_libs
-│   ├── bootstrap
-│   │   ├── bootstrap-icons.css
-│   │   ├── bootstrap-icons.woff
-│   │   ├── bootstrap.min.css
-│   │   └── bootstrap.min.js
-│   ├── clipboard
-│   │   └── clipboard.min.js
-│   ├── quarto-html
-│   │   ├── anchor.min.js
-│   │   ├── popper.min.js
-│   │   ├── quarto-syntax-highlighting.css
-│   │   ├── quarto.js
-│   │   ├── tippy.css
-│   │   └── tippy.umd.min.js
-│   ├── quarto-nav
-│   │   ├── headroom.min.js
-│   │   └── quarto-nav.js
-│   └── quarto-search
-│       ├── autocomplete.umd.js
-│       ├── fuse.min.js
-│       └── quarto-search.js
-├── sites.qmd
-└── slides.qmd</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>With some rare exceptions, I prefer to call functions in packages using their full names, e.g., <code>fs::dir_tree('src')</code>. This helps avoid namespace conflicts, and it also helps document where a specific function came from. It also helps <code>{renv}</code> keep track of my project’s package dependencies.</p>
-<p>The exception is for <code>{ggplot2}</code> commands. I find it much easier to load the library via <code>library(ggplot2)</code>, and then use the associated commands.</p>
-</div>
-</div>
-<section id="includes" class="level3">
-<h3 class="anchored" data-anchor-id="includes">Includes</h3>
-<p>Following some other expert I don’t recall, I like to create an <code>includes/</code> directory under <code>src/</code> where I put the following directories:</p>
-<ul>
-<li><code>bib</code>: for bibliographic files, e.g., <code>refs.bib</code>, and any <code>.csl</code> files.</li>
-<li><code>img</code>: for images I use as resources.</li>
-<li><code>fig</code>: for figures the code generates.</li>
-<li><code>css</code>: for CSS files.</li>
-</ul>
-<p>To make the <code>fig/</code> directory work properly, add the following YAML parameters to the site-wide or directory specific (<code>_metadata.yml</code>) file:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">knitr</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">opts_chunk</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">fig.path</span><span class="kw">:</span><span class="at"> include/fig/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The final slash (/) in the figure path (<code>fig.path</code>) parameter above is <em>critical</em>. If you omit it, each file name will include a prepended <code>fig</code> that you probably do not want.</p>
-</div>
-</div>
-</section>
-</section>
-<section id="create-_quarto.yml" class="level2">
-<h2 class="anchored" data-anchor-id="create-_quarto.yml">Create _quarto.yml</h2>
-<p>The <code>_quarto.yml</code> files have specific parameters for each type of output.</p>
-<p>Note that when using a <code>src/</code> and <code>docs/</code> directory as described above, the <code>output-dir</code> parameter must be specified to give the path to the <code>docs/</code> directory from the <code>src/_quarto.yml</code> file.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> </span><span class="st">"../docs"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="rendering" class="level2">
-<h2 class="anchored" data-anchor-id="rendering">Rendering</h2>
-<p>To render an entire site or book, I prefer to run <code>quarto render src</code> in a terminal.</p>
-<p>To render <a href="./slides.html#github-repo">talk slides</a> with a single <code>index.qmd</code> as the slide file, I run <code>quarto render index.qmd</code>.</p>
+<section id="google-calendar" class="level2">
+<h2 class="anchored" data-anchor-id="google-calendar">Google Calendar</h2>
+<iframe src="https://calendar.google.com/calendar/embed?src=n0491u4fblo9ii3r7jd229do00%40group.calendar.google.com&amp;ctz=America%2FNew_York" style="border: 0" width="700" height="600" frameborder="0" scrolling="no">
+</iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=38c910a83433d3c75b4ff3072a64c8523246afba737856091f5c621a430b8a5c%40group.calendar.google.com&amp;ctz=America%2FNew_York" style="border: 0" width="700" height="600" frameborder="0" scrolling="no">
+</iframe>
 
 
 </section>
@@ -819,14 +623,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="About">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">About</span></span>
+      <a href="./diagrams.html" class="pagination-link" aria-label="Diagrams">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Diagrams</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./books.html" class="pagination-link" aria-label="Books">
-        <span class="nav-page-text"><span class="chapter-title">Books</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -834,4 +635,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/meta.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rogilmore/quarto-quirks/edit/main/src/embeds.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rogilmore/quarto-quirks/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
