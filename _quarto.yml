@@ -1,55 +1,12 @@
 project:
-  type: book
-  output-dir: "../docs"
+  type: website
+  output-dir: "docs"
+  
+metadata-files:
+  - _website.yml
+  - _html.yml
+  - _revealjs.yml
   
 knitr:
   opts_chunk:
     fig.path: include/fig/
-
-book:
-  title: "Quarto Quirks"
-  author: "Rick Gilmore"
-  chapters:
-    - index.qmd
-    - meta.qmd
-    - books.qmd
-    - slides.qmd
-    - sites.qmd
-    - plots.qmd
-    - diagrams.qmd
-    - embeds.qmd
-  repo-url: https://github.com/rogilmore/quarto-quirks
-  repo-actions: [edit, issue]
-  repo-subdir: src
-    
-format:
-  html:
-    theme: cosmo
-    number-sections: false
-    fig-align: center
-    date-modified: last-modified
-    bibliography: include/bib/refs.bib
-    html-math-method: mathjax
-  revealjs:
-    footer: "Quarto-Quirks | © Rick Gilmore under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
-    slide-number: true
-    fig-align: center
-    # logo: https://brand.psu.edu/images/backgrounds/penn-state-shield.jpg
-    bibliography: [include/bib/refs.bib]
-    # csl: ../include/bib/apa.csl
-    theme: [serif, include/css/psu.scss]
-    css: include/slides.css
-    mainfont: roboto
-    code-fold: true
-    code-tools: true
-    chalkboard: true
-    link-external-icon: true
-    citations-hover: true
-    author: "Rick Gilmore"
-    institute: "Department of Psychology"
-    include-in-header: 
-      - text: '<script src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.7/leader-line.min.js"></script>'
-  revealjs-plugins: 
-    - attribution
-    - leader-line
-  

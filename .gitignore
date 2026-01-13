@@ -4,3 +4,6 @@
 .Ruserdata
 .Rprofile
 quarto-quirks.Rproj
+
+/.quarto/
+**/*.quarto_ipynb

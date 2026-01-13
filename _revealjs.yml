@@ -1,0 +1,32 @@
+format:
+  revealjs:
+    footer: "Quarto-Quirks | © Rick Gilmore under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    slide-number: true
+    fig-align: center
+    logo: https://brand.psu.edu/images/backgrounds/penn-state-shield.jpg
+    bibliography: [include/bib/refs.bib]
+    csl: include/bib/apa.csl
+    theme: [serif, include/css/psu.scss]
+    css: include/slides.css
+    mainfont: roboto
+    code-fold: true
+    code-tools: true
+    chalkboard: true
+    link-external-icon: true
+    citations-hover: true
+    author: "Rick Gilmore"
+    institute: "Department of Psychology"
+    revealjs-plugins:
+      - quiz
+      - drop
+      # - tts
+      - embedio
+      - qrcode
+    drop:
+      shortcut: "`"
+      engine: webr
+      webr:
+        packages:
+          - ggplot2
+          - dplyr
+    

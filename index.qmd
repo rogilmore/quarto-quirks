@@ -1,8 +1,11 @@
-# About
+---
+title: "Quarto Quirks"
+format: html
+---
 
-This Quarto book documents some of the ways I like to use Quarto for [e-books](books.qmd), talk [slides](slides.qmd), [websites](sites.qmd), and [plots](plots.qmd).
-And I find that I like to make [diagrams](diagrams.qmd), too.
+## About
 
+This Quarto book documents some of the ways I like to use Quarto for [slides](slides.qmd)
 Search engines are extremely useful tools for answering similar questions.
 Here, I try to capture specific implementations that I have found useful in my own work.
 
@@ -15,3 +18,5 @@ But there are many, many things I do not yet know about how to use it most
 effectively.
 And I find that it's easy to forget things I've figured out some months prior.
 :::
+
+What the actual heck is going on?

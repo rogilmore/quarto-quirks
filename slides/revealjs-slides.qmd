@@ -1,0 +1,70 @@
+---
+title: "revealjs-slides"
+subtitle: "A subtitle"
+format: revealjs
+---
+
+# Testing revealjs extensions
+
+# Quiz
+
+## Quarto Quiz
+
+- See <https://github.com/parmsam/quarto-quiz>
+
+## Quiz question goes here {.quiz-question}
+
+- Option 1
+- [Option 2]{.correct}
+- Option 3
+- Option 4
+
+# Quarto Drop
+
+## Source
+
+- To launch an R console, click on the icon in the lower left:
+
+![](../include/img/quarto-drop.png){width=15% fig-align="left"}
+
+- See <https://github.com/r-wasm/quarto-drop>
+
+# Text to speech
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+::: footer
+You can cancel the TTS speech at any time by pressing the `q` key.
+:::
+
+# Embedio
+
+## Details
+
+- See <https://github.com/coatless-quarto/embedio>
+
+## Audio
+
+{{< audio "include/snd/9999-ang-chk-a.wav" >}}
+
+## PDF
+
+## HTML
+
+## Reveal.js
+
+# QRcode
+
+## Example
+
+:::: {.columns}
+::: {.column width=80%}
+{{< html https://databrary.org >}}
+:::
+::: {.column width=20%}
+{{< qrcode https://databrary.org >}}
+:::
+::::
